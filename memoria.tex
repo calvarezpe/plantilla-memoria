@@ -80,7 +80,7 @@ TÍTULO DEL TRABAJO EN MAYÚSCULAS
 \vspace{4cm}
 
 \large
-Autor : Nombre del Alumno \\
+Autor : Cristian Álvarez Pérez \\
 Tutor : Dr. Gregorio Robles
 \end{center}
 \end{titlepage}
@@ -107,7 +107,7 @@ FIXME: Título
 
 \vspace{1cm}
 \large
-\textbf{Autor :} FIXME \\
+\textbf{Autor :} Cristian Álvarez Pérez \\
 \textbf{Tutor :} Dr. Gregorio Robles Martínez
 
 \end{center}
@@ -153,10 +153,10 @@ mi familia / mi abuelo / mi abuela}
 
 \chapter*{Agradecimientos}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
-\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
 
 Aquí vienen los agradecimientos\ldots Aunque está bien acordarse de la pareja,
-no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo 
+no hay que olvidarse de dar las gracias a tu madre, que aunque a veces no lo
 parezca disfrutará tanto de tus logros como tú\ldots Además, la pareja quizás
 no sea para siempre, pero tu madre sí.
 
@@ -167,18 +167,21 @@ no sea para siempre, pero tu madre sí.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos,
-donde se presente de manera clara y concisa de qué va el proyecto. Han
-de quedar respondidas las siguientes preguntas:
+El presente trabajo se basa en la creación de una aplicación web para analizar proyectos en
+GitHub, dando métricas respecto a calidad de código Python-UML. De esta manera, se
+podrá obtener un valor de representación de UML en Python. Los resultados obtenidos
+servirán para conocer cual es el uso que se le da a UML en un proyecto.
+\newline
 
-\begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto
-dentro de un marco general?
-\end{itemize}
+La aplicación web se desarrolla con HTML5, BootStrap y CSS3
+del lado del cliente, y con Django, Ctags y Python en el lado servidor.
+\newline
 
-Lo mejor es escribir el resumen al final.
+Surge la necesidad de esta aplicación web debido a un primer análisis sobre el total
+de repositorios de GitHub, en el cual se obtiene un bajo porcentaje de archivos identificados para UML.
+De este modo, la finalidad de la aplicación es ayudar a entender cuál es el uso que se hace de UML
+en cada proyecto, para comprender la poca utilización de UML a modo general.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -187,10 +190,18 @@ Lo mejor es escribir el resumen al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Here comes a translation of the ``Resumen'' into English. Please, double check
-it for correct grammar and spelling. As it is the translation of the ``Resumen'',
-which is supposed to be written at the end, this as well should be filled out
-just before submitting.
+The present paper is based on the creation of a web application in order to analyze projects in
+GitHub, giving values regarding the code quality of Python-UML. Thus, it could be possible to get a representative
+value of UML in Python. The results will be useful to know the use of UML in a given project.
+\newline
+
+The web application is developed with HTML5, BootStrap and CSS3 on the client side and with Django, Ctags and Python
+on the server side.
+\newline
+
+It arises the necessity of this web application due to a first analysis carried on GitHub repositories,
+in which a low percentage of identified UML files are obtained. In this way, the purpose of this application
+is to help to understand the use of UML in each project so as to comprehend the scarce use of UML in general.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -203,7 +214,7 @@ just before submitting.
 % y comentar/descomentar esa instrucción de LaTeX.
 
 %%%% Índice de contenidos
-\tableofcontents 
+\tableofcontents
 %%%% Índice de figuras
 \cleardoublepage
 %\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
@@ -224,71 +235,43 @@ just before submitting.
 \label{sec:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-En este capítulo se introduce el proyeto. Debería tener información general sobre 
-el mismo, dando la información sobre el contexto en el que se ha desarrollado.
-
-No te olvides de echarle un ojo a la página con los cinco errores de escritura más frecuentes\footnote{\url{http://www.tallerdeescritores.com/errores-de-escritura-frecuentes}}.
-
-\section{}
+\section{Motivación}
 \label{sec:}
 
-\subsection{Estilo}
-\label{subsec:estilo}
+La realización de este trabajo surge debido a la necesidad de poder obtener resultados
+concretos a aquellos proyectos almacenados en GitHub, de manera que se pueda establecer,
+de manera objetiva, el uso que se le da a UML.
 
-Sobre el uso de las comas\footnote{\url{http://narrativabreve.com/2015/02/opiniones-de-un-corrector-de-estilo-11-recetas-para-escribir-correctamente-la-coma.html}}
+De esta manera, se pretende poder entender el poco uso que se le da, tal como se puede observar,
+ya que menos del 1\% de todos los proyectos de GitHub son los que usan UML.
 
- \begin{figure}
-    \centering
-    \includegraphics[bb=0 0 800 600, width=12cm, keepaspectratio]{img/foro1}
-    \caption{Página con enlaces a hilos}
-    \label{figura:foro_hilos}
- \end{figure}
+Este proyecto pretende dar a apoyo al estudio realizado por la URJC y la Universidad de Gotemburgo
+sobre el uso de UML, el cual tiene como pretexto que, un proyecto que este representado
+con UML es un buen proyecto. Por lo tanto, los resultados obtenidos en este programa,
+se pueden asociar a calidad.
 
-{\footnotesize
-\begin{verbatim}
-    From gaurav at gold-solutions.co.uk  Fri Jan 14 14:51:11 2005
-    From: gaurav at gold-solutions.co.uk (gaurav_gold)
-    Date: Fri Jan 14 19:25:51 2005
-    Subject: [Mailman-Users] mailman issues
-    Message-ID: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-
-    Dear Sir/Madam,
-    How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-    Thanks
-
-    From msapiro at value.net  Fri Jan 14 19:48:51 2005
-    From: msapiro at value.net (Mark Sapiro)
-    Date: Fri Jan 14 19:49:04 2005
-    Subject: [Mailman-Users] mailman issues
-    In-Reply-To: <003c01c4fa40$1d99b4c0$94592252@gaurav7klgnyif>
-    Message-ID: <PC173020050114104851057801b04d55@msapiro>
-
-    gaurav_gold wrote:
-    >How can people reply to the mailing list?  How do i turn off
-    this feature? How can i also enable a feature where if someone
-    replies the newsletter the email gets deleted?
-
-    See the FAQ
-    >Mailman FAQ: http://www.python.org/cgi-bin/faqw-mm.py
-    article 3.11
-\end{verbatim}
-}
+\section{Proyectos similares}
+\label{sec:}
+La Universidad de Gotemburgo junto con la URJC ha realizado análisis de UML, respecto al uso
+y estudio que se le da, pero no existe una herramienta como tal para la obtención
+de métricas para su análisis. Por lo tanto, esta se trata de un herramienta piloto.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se debería introducir la esctura de la memoria. Así:
-
 \begin{itemize}
-  \item En el primer capítulo se hace una intro al proyecto.
-  
-  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos del proyecto.
-  
-  \item A continuación se presenta el estado del arte.
-  
-  \item \ldots
+  \item \textbf{Capítulo 1. Introducción:} aspectos básicos del trabajo.
+
+  \item \textbf{Capítulo 2. Objetivos:} se muestran los objetivos deseados a nivel general y específicos.
+
+  \item \textbf{Capítulo 3. Estado del arte:} situación actual de las tecnologías usadas.
+
+  \item \textbf{Capítulo 4. Diseño e implementación:} detalles de la aplicación creada.
+
+  \item \textbf{Capítulo 5. Resultados:} análisis de los resultados obtenidos.
+
+  \item \textbf{Capítulo 6. Conclusiones:} proposición final de todo el trabajo y posibles líneas de mejora.
+
 \end{itemize}
 
 
@@ -303,15 +286,29 @@ En esta sección se debería introducir la esctura de la memoria. Así:
 \label{chap:objetivos}
 
 \section{Objetivo general}
-label{sec:objetivo-general}
-
+\label{sec:objetivo-general}
+El objetivo principal de este trabajo es la realización de una aplicación web en la cual se obtenga
+unos parámetros objetivos para poder evaluar la calidad de la representación de UML sobre el proyecto a analizar,
+el cual debe de estar en GitHub, basándose
+en los nombres de las clases representadas en los archivos Python que tenga el proyecto.
 
 \section{Objetivos específicos}
-label{sec:objetivos-especificos}
+\label{sec:objetivos-especificos}
+\begin{itemize}
+  \item Estudiar sintaxis de UML y sus archivos para poder entender las posibles formas en las que
+  podemos obtener un archivo UML y los distintos tipos.
+  \item Concretar número de proyectos de los que disponemos, y tenemos constancia que son proyectos
+  con modelado UML. Verificados por la Universidad de Gotemburgo.
+  \item Extración de los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
+  están representadas.
+  \item Optimizar código para los proyectos disponibles, tras realizar pruebas de test cone llos.
+  \item Desarrollo página web para mostrar los resultados y poder usar la aplicación en futuros proyectos
+  de manera rápida y sencilla.
 
+\end{itemize}
 
 \section{Planificación temporal}
-label{sec:planificacion-temporal}
+\label{sec:planificacion-temporal}
 
 
 
@@ -323,19 +320,152 @@ label{sec:planificacion-temporal}
 \cleardoublepage
 \chapter{Estado del arte}
 
-Descripción de las tecnologías que utilizas en tu trabajo. Con dos o tres párrafos por cada tecnología, vale.
+Los temas a desarrollar de la situación actual los separamos en tres bloques: contexto general,
+lado cliente y lado servidor, especificando en cada uno las tecnologías usadas y los temas
+implicados.
 
-
-Puedes citar libros, como el de Bonabeau et al. sobre procesos estigmérgicos~\cite{bonabeau:_swarm}. % Nota que el ~ añade un espacio en blanco, pero no deja que exista un salto de línea. Imprescindible ponerlo para las citas.
-
-También existe la posibilidad de poner notas al pie de página, por ejemplo, 
-una para indicarte que visite la página de 
-LibreSoft\footnote{\url{http://www.libresoft.es}}.
-
-\section{Sección 1} 
+\section{UML: Unified Modeling Language}
 \label{sec:seccion1}
 
+Es un lenguaje de modelado de software para la creación de esquemas, diagramas y documentación
+para el desarrollo software, estandarizado en 2005, aunque el primer borrador fué lanzado
+en 1997. Este estándar pretende unificar la manera de visualizar el diseño de un sistema.
+No es un lenguaje de programación como tal, sino un conjunto de normas estándares gráficos
+respecto al sistema.
 
+Sirve para dar una representación gráfica de los procesos o métodos del sistema. UML cuenta con distintos
+tipos de diagramas, dependiendo del enfoque a representar del sistema. Los más usados son
+los casos de uso, clase y secuencia.
+\begin{itemize}
+  \item \textbf{Diagrama de casos de uso:} representa todas las posibilidades de uso de un sistema
+  \item \textbf{Diagrama de clases:} describe la estructura mostrando las clases con sus atributos
+  operaciones y relaciones entre objetos.
+  \item \textbf{Diagrama de objetos:} se utiliza para representar la instancia de una clase.
+  \item \textbf{Diagrama de secuencias:} muestra la interacción, a lo largo del tiempo, entre instancias de
+  clases, componentes o actores.
+  \item \textbf{Diagrama de colaboración:} representa el trabajo conjunto de las instancias específicas
+  de las clases.
+  \item \textbf{Diagrama de estados:} sirve para conocer la situación actual del sistema
+  y los cambios que se pueden provocar, a lo largo de su existencia.
+  \item \textbf{Diagrama de actividades:} muestra el flujo de trabajo a través de una serie de acciones.
+  \item \textbf{Diagrama de componentes:} orientado a la arquitectura, sirve para conocer la división
+  de componentes físicos y la dependencia entre ellos.
+  \item \textbf{Diagrama de despliegue:} complemento de los diagramas de componentes. Muestra la configuración
+  en funcionamiento entre software y hardware.
+\end{itemize}
+
+Debido al desarrollo de este trabajo, haremos especial incapié en los diagramas de clases.
+
+\subsection{Diagrama de clases}
+\label{subsec:diagrama-de-clases}
+Tal como hemos visto anteriormente, los diagramas de clases describen la estructura del programa de manera estática
+mostrando las clases con sus atributos y sus interaciones tales como herencias, asociaciones, etc.
+Es la estructura más común representada en UML, siendo utilizados
+tanto como para análisis como para diseño de sistemas o software en general.
+El proceso para la definición de un diagrama de clases es el siguiente:
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=14cm, keepaspectratio]{img/construml}
+  \caption{Diagrama de definción de UML}
+  \label{fig:construml}
+\end{figure}
+
+Las clases en UML son representadas como un rectángulo dividido en nombre de la clase, atributos y operaciones o métodos.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=2cm, keepaspectratio]{img/clase1}
+  \caption{Representación de clase}
+  \label{fig:diagrama-de-clases}
+\end{figure}
+
+\begin{itemize}
+  \item Clases: encapsulan la información de un objeto.
+  \item Atributos: se definen como las características que presenta una clase. Pueden ser
+  public, private o protected.
+  \item Métodos: es la forma en la que el objeto interactúa con el entorno. Pueden ser public,
+  private o protected.
+\end{itemize}
+En cuanto a las relaciones entre clases, se representa con flechas y según sea el estilo de la flecha, representa
+una relación u otra.
+\begin{itemize}
+  \item Herencia: indica que una subclase, incluye los métodos y atributos de la clase superior.
+  \item Agregación: para componer objetos complejos en los que no es suficiente con los datos básicos.
+  \item Asosicación: relación de objetos que colaboran entre si.
+  \item Dependencia o Instanciación: sucede cuando la instancia de un objeto depende de otro objeto.
+\end{itemize}
+
+\section{Lado servidor}
+\label{sec:seccion2}
+
+\subsection{Django}
+\label{subsec:django}
+\textbf{Django}\footnote{https://www.djangoproject.com/} es un framework opensource de desarrollo web para crear aplicaciones Web de alta calidad
+disminuyendo código, basado en DRY (Don't repite yourself). Surgió debido a las necesidades de la aplicación
+de noticias de la World Company.
+
+Se aproxima al patrón de diseño MVC (Modelo-Vista-Controlador), en el cual se separa
+el acceso y definición de datos (Modelo), de la asignación de ruta lógica (Controlador) y
+de la interfaz de usuario (Vista).
+Este patrón de diseño favorece a la modificación de cada archivo, de manera que en caso de
+modificación de un componente, este no afecte a otro, es decir, tiene un acoplamiento débil.
+
+\subsection{Exuberant Ctags}
+\label{subsec:ctags}
+\textbf{Exuberant ctags}\footnote{http://ctags.sourceforge.net} es una variante extendida de ctags, que es una herramienta de programación,
+la cual genera un archivo de etiquetas en texto plano a partir
+del código fuente de un programa. En el archivo de etiquetas, se indican funciones,
+variables, clases, macros... dependiendo del lenguaje de programación.
+Actualmente soporta 41 lenguajes de programación.
+
+Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores y utilidades.
+
+\subsection{Python}
+\label{subsec:python}
+\textbf{Python}\footnote{https://www.python.org} es un lenguaje de programación, creado a finales de los 80, caracterizado
+por la legibilidad del código. Se caracteriza por ser:
+\begin{enumerate}
+  \item Interpretado: no necesita de un compilador para ser ejecutados, sino de un interprete. El interprete
+  ejecuta el programa directamente, no genera un ejecutable.
+  \item De alto nivel: sintaxis sencilla.
+  \item Multiplataforma: para diversos Sistemas Operativos.
+  \item De tipado dinámico: no es necesario declarar el tipo de variable, ya que se asigna
+  automáticamente en tiempo de ejecución.
+  \item Multiparadigma: permite distintas técnicas de programación (Orientación a objetos, funcional...)
+\end{enumerate}
+
+\section{Lado cliente}
+\label{sec:seccion3}
+
+\subsection{HTML5}
+\label{subsec:html5}
+Quinta versión de \textbf{HTML} (HyperText Markup Language)lanzada en 2014. Se trata de un lenguaje de marcado para la realizar páginas web de manera
+estructurada. Se incluyen nuevos elementos, atributos y comportamientos. También incluye un más tecnologías
+que permite a las páginas webs ser mas diversas y atractivas, soportado por la mayoría de navegadores.
+
+Cuenta con numerosas etiquetas para contenido multimedia, que lo hace interesante debido a
+que no es necesario el uso de Flash, ni de instalar nada de forma adiccional.
+
+\subsection{CSS3}
+\label{subsec:CSS3}
+\textbf{CSS3} (Cascading StyleSheets) es la úlima evolución de las hojas de estilo en casacada CSS, que es un lenguaje de diseño gráfico para la presentación de documentos
+definidos en HTML. Es la mejor forma para separar contenidos y su presentación.
+El W3C apostó por el desarrollo y estandarización de CSS y en 1996 publicó la primera recomendación.
+
+Con HTML se marcan los contenidos de la página, y se utiliza CSS para definir el aspecto de cada
+elemento marcado, como tamaño, color, tipo, separación...
+
+CSS3 incorpora muchas novedades muy esperadas como esquinas redondeadas, sombras, animaciones, nuevos layouts...
+Las partes experimentales son especiales para cada navegador, y no es recomendable su uso en producción.
+
+\subsection{BootStrap}
+\label{subsec:bootstrap}
+\textbf{BootStrap}\footnote{http://getbootstrap.com} es un framework desarrollado y liberado por Twitter. Su principal objetivo es facilitar el diseño web,
+a partir de librerias CSS.
+
+Para ello, permite la creación sencilla de webs con interfaces limpias para el usuario y totalmente adaptables
+para todos los dispositivos. BootStrap es compatible con la mayoría de los navegadores actuales.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -344,19 +474,219 @@ LibreSoft\footnote{\url{http://www.libresoft.es}}.
 
 \cleardoublepage
 \chapter{Diseño e implementación}
+A lo largo de este capítulo se desarrolla toda la arquitectura de la aplicación web,
+el acoplamiento entre los componentes y la especificación de cada parte de la aplicación.
 
-\section{Arquitectura general} 
+\section{Arquitectura general}
 \label{sec:arquitectura}
 
-figura~\ref{fig:arquitectura}.
-
-\begin{figure}
+La aplicación consta de parte servidora, que es donde se lleva a cabo toda la lógica, y
+la parte cliente, que es donde se muestran los resultados obtenidos. En la figura \ref{fig:arquitectura}
+podemos ver el esquema general, indicando para cada módulo las tecnologías que se usan.
+\begin{figure}[htb]
   \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico}
+  \includegraphics[width=12cm, keepaspectratio]{img/arquitectura-web}
+  \caption{Arquitectura aplicación web}
   \label{fig:arquitectura}
 \end{figure}
 
+Debido a la configuración de la página web, se pueden solicitar dos opciones: analizar un proyecto
+dada su página web en GitHub o consultar todos los proyectos disponibles en la base de datos. Se considera proyecto
+disponible todo aquel que haya sido analizado anteriormente.
+
+PANTALLAZO PAGINA WEB DEL FRONTAL AQUI
+
+\begin{itemize}
+  \item \textbf{Analizar un proyecto dada su página web en GitHub.} En este caso, si el proyecto existe
+  en GitHub, el resultado será de una nueva página con una tabla indicando los resultados que se obtienen
+  para dicho proyecto. Los resultados que se muestran son el número de clases en UML, el número de clases en Python,
+  la intersección entre ambas y su porcentaje, y un desglose de la intersección.
+  \item \textbf{Consulta de todos los proyectos.} Cuando se selecciona esta opción, se mostrará una nueva página
+  con un estilo similar a la tabla anterior, pero mostrando todos los proyectos analizados anteriormente y se encuentren
+  en la base de datos de la aplicación.
+\end{itemize}
+
+Es necesario entender el funcionamiento de cada módulo, detallado a continuación.
+
+\subsection{Lado cliente}
+\label{subsec:cliente}
+\subsubsection{Frontal página web}
+\label{subsubsec:frontweb}
+El frontal de la página web, es la parte que ve el cliente. Se apuesta por un modelo sencillo
+y claro, que no permita dudas al uso.
+PANTALLAZO
+
+Se muestra un cuadro en el cual se debe ingresar la página web donde está alojado el repositorio de GitHub,
+un botón para proceder al envio de la url y un link para consultar los proyectos disponibles.
+El método de envio del formulario es mediante POST, ya que permite que los datos enviados no sean visibles al usuario,
+y no llegen datos inesperados a nuestro servidor.
+
+La vista de resultados se trata de una tabla, formada por todos los elementos del objeto u objetos que se haya solicitado.
+PANTALLAZO DE LOS EJEMPLOS
+
+\subsection{Lado servidor}
+\label{subsec:servidor}
+\subsubsection{Servidor Django}
+\label{subsubsec:server}
+El servidor django necesita de distintos archivos para poder funcionar, a continuación se muestra la estructura
+completa:
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=4cm, keepaspectratio]{img/estructura-server}
+  \caption{Estructura de ficheros en el servidor}
+  \label{fig:estructura-server}
+\end{figure}
+
+Tal como se puede observar en la figura \ref{fig:estructura-server}, el directorio raíz
+está formado por:
+\begin{itemize}
+  \item \textbf{db.sqlite3} que es el archivo de la base de datos.
+  \item \textbf{manage.py} que es sirve para interactuar con Django a través de comandos.
+  \item \textbf{mysite} que es el directorio principal del servidor Django. Dentro de este directorio,
+  los archivos que usamos son \textit{urls.py}, en el cual tenemos que incluir todas las
+  urls de nuestra aplicación y \textit{settings.py}, en el cual disponemos de la configuración general del servidor,
+  en el cual tenemos que indicar nuestra aplicación.
+  \item \textbf{pyumlclass} que es el directorio donde está toda la lógica de nuestra aplicación. Es necesario realizar
+  una explicación de los siguientes archivos/directorios:
+  \begin{itemize}
+    \item \textbf{UMLPythonExtractorv2} es el directorio donde se encuentra todo el código necesario para analizar
+    el código Python y UML, no vamos a entrar en detalle en este apartado ya que será explicado en el módulo Analizador
+    Python-UML.
+    \item \textbf{models.py} en este archivo se encuentran los modelos (objetos) necesarios que hará uso nuestra aplicación.
+    Para nuestro caso, se ha creado un único modelo llamado Project, y con las propiedades necesarias para mostrar los
+    datos en nuestra aplicación. Podemos ver más detalle en la figura \ref{fig:project-model}
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[width=12cm, keepaspectratio]{img/project-model}
+      \caption{Modelo para nuestra aplicación}
+      \label{fig:project-model}
+    \end{figure}
+    \item \textbf{templates} es el directorio donde se almacenan las plantillas HTML de nuestra web.
+    \item \textbf{urls.py} es el archivo denominado controlador. En este archivo es donde se indica la vista
+    que se mostrará en el momento que se pida una url. Django utiliza un conjunto de patrones que intentará
+    hacer coincidir la dirección URL recibida con la vista correcta. En este caso tenemos las siguientes urls:
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[width=10cm, keepaspectratio]{img/controlador-urls}
+      \caption{Modelo para nuestra aplicación}
+      \label{fig:controlador-urls}
+    \end{figure}
+
+    Tal como podemos ver, vamos a explicar el último caso. El primer operando sirve para especificar la url
+    a la que queremos asociar, en este caso \textit{results}, sera asociada a la vista results ubicada en views.results.
+    \item \textbf{views.py} es el archivo donde se encuentran las vistas de nuestro servidor. Existe una vista por cada
+    página disponible de nuestro servidor, por lo tanto en nuestro caso hay 3: para la página principal, para la página
+    de archivo donde se encuentran todos los resultados de los proyectos y la página de resultados a partir de una url
+    dada.
+
+  \end{itemize}
+\end{itemize}
+
+Por lo tanto el proceso sería, el servidor django recibe una URL, el controlador buscará cual es la vista correcta
+para esa URL, y en caso de éxito, llamaría a la vista. La vista realizaría todo lo que este indicado en sí para cada caso,
+y respondería renderizando la plantilla HTML.
+
+\subsubsection{BBDD SQLite3}
+\label{subsubsec:bbdd}
+Se trata de una base de datos relacional, que viene por defecto en Django.
+En la base de datos almacenamos nombre del proyecto, número de clases de UML,
+número de clases de Python, intersección de clases, número de clases sin correción, número de clases
+corregidas por errores de mayúsculas y número de clases corregidas por errores en distancia hamming.
+
+
+\subsubsection{GitHub}
+\label{subsubsec:github}
+Se realiza una descarga del repositorio para poder realizar el analisis del proyecto. La descarga
+se hace ejecutando el siguiente codigo:
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{img/codigo-git}
+  \caption{Instrucción para descargar un proyecto desde GitHub}
+  \label{fig:codigogit}
+\end{figure}
+
+Esto crea una carpeta en el directorio donde se haya ejecutado el código con el nombre que aparezca
+en GitHub como nombre del proyecto.
+
+\subsubsection{Analizador Python-UML}
+\label{subsubsec:analizadorpyuml}
+Este es el módulo principal en el que se basa esta aplicación web, dónde se encuentra toda la lógica.
+
+El funcionamiento general de este programa consiste en:
+\begin{enumerate}
+  \item Como datos de entrada se le tiene que dar una URL de un proyecto almacenado en GitHub. Se descarga
+  este proyecto en el directorio local donde se ejecute el programa, para poder analizarlo.
+  \item Se recorre todos directorios en busca de archivos UML (.xmi) y Python (.py)
+  \item Se extrae el nombre de las clases de los archivos encontrados. Según sea UML o Python se seguirá
+  un procedimiento u otro:
+  \begin{itemize}
+    \item Python. Para la extracción de los nombres de las clases se utiliza Ctags, para ello se ejecuta
+    \textit{ctags nombre\_archivo.py}, y Ctags genera un archivo de etiquetas llamado \textit{tags}.
+
+    Este archivo indica en cada linea el tipo que es con atributos o con que está relacionado. Para nuestro
+    caso, solo nos fijaremos aquellas que sean marcadas como clases, indicadas con
+    una \textbf{c} al final, y nos quedamos con el nombre de la clase.
+
+    Todas las clases de todos los archivos .py seran añadidas a un archivo.
+
+    Una vez finalizado este proceso,
+    se realiza un proceso de depuración en el que se eliminan duplicados.
+    \item UML. Para este caso, se trata el archivo .xmi con un parser, el cual se encarga de extraer las etiquetas. Una vez
+    extraidas todas las etiquetas, hay que quedarse unicamente con aquellas consideras UML. Despues de esto,
+    hay que fijarnos en aquellas marcadas como Clases, y de estas nos quedamos con el nombre de la clase.
+
+    Al igual que en python, se añaden todas los nombres de las clases de todos los archivos .xmi a una lista, y se
+    realiza un proceso de depuración para eliminar duplicados.
+  \end{itemize}
+  \item Una vez obtenidos todos los nombres de las clases tanto para Python como para UML, se procede a realizar
+  un análisis los nombres. Para facilitar las operaciones de análisis, se convierte las listas de clases en \textit{sets},
+  que es un tipo de Python definido como colecciones de datos únicos no ordenados. El análisis se divide en tres partes:
+  \begin{enumerate}
+    \item \textbf{Análisis sin correciones:} se calcula la intersección existente entre los dos sets. Es decir,
+    se crea un sets nuevo, con los nombres de las clases que tengan en común.
+
+    \begin{figure}[htb]
+      \centering
+      \includegraphics[width=8cm, keepaspectratio]{img/pyumlsets}
+      \caption{Código para calcular la intersección}
+      \label{fig:pyumlsets}
+    \end{figure}
+
+    \item \textbf{Análisis con correciones por minúsculas:} se convierte las clases en minúsculas y se vuelve a realizar
+    la intersección. Se realiza la conversión del resto de clases que aun no han sido emparejadas, para que no haya valores
+    a comparar ya añadidos.
+
+    Es decir, el problema que solucionamos con esto es que si una clase en Python se llama 'Boss', y en UML se llama 'boss', con este método se
+    consideran como iguales ya que el concepto 'Boss', está representado en UML.
+
+    \item \textbf{Análisis con correciones por distancia hamming:} la distancia hamming entre dos palabras es el número
+    de letras que tienen diferentes. Es decir, la distancia hamming entre \textit{padre} y \textit{madre} es 1.
+
+    Por lo tanto, se consideran equivalentes aquellas clases que presenten fallos por diferencias de 3 letras y una
+    diferencia de longitud entre ellas menor a 3.
+
+    Por ejemplo, la clase 'RBFN', será valida con la clase 'RBFNN'.
+  \end{enumerate}
+
+  Una vez hechas todas las correciones, se devuelven los resultados obtenidos:
+  \begin{itemize}
+    \item Número total de clases.
+    \item Número de clases obtenidas sin corregir.
+    \item Número de clases obtenidas por correción de minúsculas.
+    \item Número de clases obtenidas por correción de distancia hamming.
+    \item Lista de clases de Python que no están representadas en UML.
+    \item Lista de clases de UML que no existen en Python.
+    \item Lista de clases en común de Python y UML.
+  \end{itemize}
+  \item Una vez finalizado todo el análisis, se borra la carpeta del proyecto y finaliza el programa.
+\end{enumerate}
+
+Para realizar todo este proceso se utiliza 3 archivos, de manera que las funciones esten desacopladas
+entre sí, y cualquier modificación de una función no afecte a otras.
+
+Para no perder los datos se van almacenando en un fichero .csv.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -458,7 +788,7 @@ las tecnologías utilizadas y demás.
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
 % formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
 % y verás que lo puedes hacer de manera sencilla.
-% Más información: 
+% Más información:
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
 
 \end{document}
