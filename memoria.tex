@@ -167,20 +167,15 @@ no sea para siempre, pero tu madre sí.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-El presente trabajo se basa en la creación de una aplicación web para analizar proyectos en
-GitHub, dando métricas respecto a calidad de código Python-UML. De esta manera, se
+El presente trabajo tiene como objetivo la creación de una aplicación web para analizar proyectos en
+GitHub, en particular dando métricas respecto a la sincronización de código Python con diagramas en UML. De esta manera, se
 podrá obtener un valor de representación de UML en Python. Los resultados obtenidos
-servirán para conocer cual es el uso que se le da a UML en un proyecto.
-\newline
+podrían servir para conocer cuál es el uso que se le da a UML en un proyecto.
 
-La aplicación web se desarrolla con HTML5, BootStrap y CSS3
-del lado del cliente, y con Django, Ctags y Python en el lado servidor.
-\newline
+La aplicación web se ha desarrollado con tecnologías HTML5, BootStrap y CSS3
+en el lado del cliente, y con tecnologías Django, Ctags y Python en el lado del servidor.
 
-Surge la necesidad de esta aplicación web debido a un primer análisis sobre el total
-de repositorios de GitHub, en el cual se obtiene un bajo porcentaje de archivos identificados para UML.
-De este modo, la finalidad de la aplicación es ayudar a entender cuál es el uso que se hace de UML
-en cada proyecto, para comprender la poca utilización de UML a modo general.
+La sincronización en cuanto a representación de código y diagramas UML permite conocer mejor el uso que los desarrolladores hacen del modelado, pudiendo identificarse errores, patrones de conducta, inconsistencias, etc. Para mostrar la conveniencia de la aplicación que se ha creado en este TFG, se ha aplicado en unos 200 proyectos Python alojados en GitHub que contienen diagramas UML.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,9 +238,9 @@ concretos a aquellos proyectos almacenados en GitHub, de manera que se pueda est
 de manera objetiva, el uso que se le da a UML.
 
 De esta manera, se pretende poder entender el poco uso que se le da, tal como se puede observar,
-ya que menos del 1\% de todos los proyectos de GitHub son los que usan UML.
+ya que menos del 1\% de todos los proyectos de GitHub usan UML.
 
-Este proyecto pretende dar a apoyo al estudio realizado por la URJC y la Universidad de Gotemburgo
+Este proyecto pretende dar a apoyo al estudio realizado por la URJC, la Universidad de Gotemburgo y Chalmers University (Suecia)
 sobre el uso de UML, el cual tiene como pretexto que, un proyecto que este representado
 con UML es un buen proyecto. Por lo tanto, los resultados obtenidos en este programa,
 se pueden asociar a calidad.
@@ -299,9 +294,9 @@ en los nombres de las clases representadas en los archivos Python que tenga el p
   podemos obtener un archivo UML y los distintos tipos.
   \item Concretar número de proyectos de los que disponemos, y tenemos constancia que son proyectos
   con modelado UML. Verificados por la Universidad de Gotemburgo.
-  \item Extración de los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
+  \item Extracción de los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
   están representadas.
-  \item Optimizar código para los proyectos disponibles, tras realizar pruebas de test cone llos.
+  \item Optimizar código para los proyectos disponibles, tras realizar pruebas de test con e llos.
   \item Desarrollo página web para mostrar los resultados y poder usar la aplicación en futuros proyectos
   de manera rápida y sencilla.
 
@@ -328,7 +323,7 @@ implicados.
 \label{sec:seccion1}
 
 Es un lenguaje de modelado de software para la creación de esquemas, diagramas y documentación
-para el desarrollo software, estandarizado en 2005, aunque el primer borrador fué lanzado
+para el desarrollo software, estandarizado en 2005, aunque el primer borrador fue lanzado
 en 1997. Este estándar pretende unificar la manera de visualizar el diseño de un sistema.
 No es un lenguaje de programación como tal, sino un conjunto de normas estándares gráficos
 respecto al sistema.
@@ -354,12 +349,12 @@ los casos de uso, clase y secuencia.
   en funcionamiento entre software y hardware.
 \end{itemize}
 
-Debido al desarrollo de este trabajo, haremos especial incapié en los diagramas de clases.
+Debido al desarrollo de este trabajo, haremos especial hincapié en los diagramas de clases.
 
 \subsection{Diagrama de clases}
 \label{subsec:diagrama-de-clases}
 Tal como hemos visto anteriormente, los diagramas de clases describen la estructura del programa de manera estática
-mostrando las clases con sus atributos y sus interaciones tales como herencias, asociaciones, etc.
+mostrando las clases con sus atributos y sus interacciones tales como herencias, asociaciones, etc.
 Es la estructura más común representada en UML, siendo utilizados
 tanto como para análisis como para diseño de sistemas o software en general.
 El proceso para la definición de un diagrama de clases es el siguiente:
@@ -367,7 +362,7 @@ El proceso para la definición de un diagrama de clases es el siguiente:
 \begin{figure}[htb]
   \centering
   \includegraphics[width=14cm, keepaspectratio]{img/construml}
-  \caption{Diagrama de definción de UML}
+  \caption{Diagrama de definición de UML}
   \label{fig:construml}
 \end{figure}
 
@@ -392,7 +387,7 @@ una relación u otra.
 \begin{itemize}
   \item Herencia: indica que una subclase, incluye los métodos y atributos de la clase superior.
   \item Agregación: para componer objetos complejos en los que no es suficiente con los datos básicos.
-  \item Asosicación: relación de objetos que colaboran entre si.
+  \item Asociación: relación de objetos que colaboran entre si.
   \item Dependencia o Instanciación: sucede cuando la instancia de un objeto depende de otro objeto.
 \end{itemize}
 
@@ -401,7 +396,7 @@ una relación u otra.
 
 \subsection{Django}
 \label{subsec:django}
-\textbf{Django}\footnote{https://www.djangoproject.com/} es un framework opensource de desarrollo web para crear aplicaciones Web de alta calidad
+\textbf{Django}\footnote{https://www.djangoproject.com/} es un framework de software libre de desarrollo web para crear aplicaciones Web de alta calidad
 disminuyendo código, basado en DRY (Don't repite yourself). Surgió debido a las necesidades de la aplicación
 de noticias de la World Company.
 
@@ -440,16 +435,16 @@ por la legibilidad del código. Se caracteriza por ser:
 
 \subsection{HTML5}
 \label{subsec:html5}
-Quinta versión de \textbf{HTML} (HyperText Markup Language)lanzada en 2014. Se trata de un lenguaje de marcado para la realizar páginas web de manera
+Quinta versión de \textbf{HTML} (HyperText Markup Language) lanzada en 2014. Se trata de un lenguaje de marcado para la realizar páginas web de manera
 estructurada. Se incluyen nuevos elementos, atributos y comportamientos. También incluye un más tecnologías
 que permite a las páginas webs ser mas diversas y atractivas, soportado por la mayoría de navegadores.
 
 Cuenta con numerosas etiquetas para contenido multimedia, que lo hace interesante debido a
-que no es necesario el uso de Flash, ni de instalar nada de forma adiccional.
+que no es necesario el uso de Flash, ni de instalar nada de forma adicional.
 
 \subsection{CSS3}
 \label{subsec:CSS3}
-\textbf{CSS3} (Cascading StyleSheets) es la úlima evolución de las hojas de estilo en casacada CSS, que es un lenguaje de diseño gráfico para la presentación de documentos
+\textbf{CSS3} (Cascading StyleSheets) es la última evolución de las hojas de estilo en cascada CSS, que es un lenguaje de diseño gráfico para la presentación de documentos
 definidos en HTML. Es la mejor forma para separar contenidos y su presentación.
 El W3C apostó por el desarrollo y estandarización de CSS y en 1996 publicó la primera recomendación.
 
@@ -462,7 +457,7 @@ Las partes experimentales son especiales para cada navegador, y no es recomendab
 \subsection{BootStrap}
 \label{subsec:bootstrap}
 \textbf{BootStrap}\footnote{http://getbootstrap.com} es un framework desarrollado y liberado por Twitter. Su principal objetivo es facilitar el diseño web,
-a partir de librerias CSS.
+a partir de librerías CSS.
 
 Para ello, permite la creación sencilla de webs con interfaces limpias para el usuario y totalmente adaptables
 para todos los dispositivos. BootStrap es compatible con la mayoría de los navegadores actuales.
@@ -517,9 +512,9 @@ y claro, que no permita dudas al uso.
 PANTALLAZO
 
 Se muestra un cuadro en el cual se debe ingresar la página web donde está alojado el repositorio de GitHub,
-un botón para proceder al envio de la url y un link para consultar los proyectos disponibles.
-El método de envio del formulario es mediante POST, ya que permite que los datos enviados no sean visibles al usuario,
-y no llegen datos inesperados a nuestro servidor.
+un botón para proceder al envío de la URL y un enlace para consultar los proyectos disponibles.
+El método de envío del formulario es mediante POST, ya que permite que los datos enviados no sean visibles al usuario,
+y no lleguen datos inesperados a nuestro servidor.
 
 La vista de resultados se trata de una tabla, formada por todos los elementos del objeto u objetos que se haya solicitado.
 PANTALLAZO DE LOS EJEMPLOS
@@ -528,7 +523,7 @@ PANTALLAZO DE LOS EJEMPLOS
 \label{subsec:servidor}
 \subsubsection{Servidor Django}
 \label{subsubsec:server}
-El servidor django necesita de distintos archivos para poder funcionar, a continuación se muestra la estructura
+El servidor Django necesita de distintos archivos para poder funcionar, a continuación se muestra la estructura
 completa:
 
 \begin{figure}[htb]
@@ -545,7 +540,7 @@ está formado por:
   \item \textbf{manage.py} que es sirve para interactuar con Django a través de comandos.
   \item \textbf{mysite} que es el directorio principal del servidor Django. Dentro de este directorio,
   los archivos que usamos son \textit{urls.py}, en el cual tenemos que incluir todas las
-  urls de nuestra aplicación y \textit{settings.py}, en el cual disponemos de la configuración general del servidor,
+  URLs de nuestra aplicación y \textit{settings.py}, en el cual disponemos de la configuración general del servidor,
   en el cual tenemos que indicar nuestra aplicación.
   \item \textbf{pyumlclass} que es el directorio donde está toda la lógica de nuestra aplicación. Es necesario realizar
   una explicación de los siguientes archivos/directorios:
@@ -554,7 +549,7 @@ está formado por:
     el código Python y UML, no vamos a entrar en detalle en este apartado ya que será explicado en el módulo Analizador
     Python-UML.
     \item \textbf{models.py} en este archivo se encuentran los modelos (objetos) necesarios que hará uso nuestra aplicación.
-    Para nuestro caso, se ha creado un único modelo llamado Project, y con las propiedades necesarias para mostrar los
+    Para nuestro caso, se ha creado un único modelo llamado \emph{Project}, y con las propiedades necesarias para mostrar los
     datos en nuestra aplicación. Podemos ver más detalle en la figura \ref{fig:project-model}
     \begin{figure}[htb]
       \centering
@@ -564,8 +559,8 @@ está formado por:
     \end{figure}
     \item \textbf{templates} es el directorio donde se almacenan las plantillas HTML de nuestra web.
     \item \textbf{urls.py} es el archivo denominado controlador. En este archivo es donde se indica la vista
-    que se mostrará en el momento que se pida una url. Django utiliza un conjunto de patrones que intentará
-    hacer coincidir la dirección URL recibida con la vista correcta. En este caso tenemos las siguientes urls:
+    que se mostrará en el momento que se pida una URL. Django utiliza un conjunto de patrones que intentará
+    hacer coincidir la dirección URL recibida con la vista correcta. En este caso tenemos las siguientes URLs:
     \begin{figure}[htb]
       \centering
       \includegraphics[width=10cm, keepaspectratio]{img/controlador-urls}
@@ -573,17 +568,17 @@ está formado por:
       \label{fig:controlador-urls}
     \end{figure}
 
-    Tal como podemos ver, vamos a explicar el último caso. El primer operando sirve para especificar la url
+    Tal como podemos ver, vamos a explicar el último caso. El primer operando sirve para especificar la URL
     a la que queremos asociar, en este caso \textit{results}, sera asociada a la vista results ubicada en views.results.
     \item \textbf{views.py} es el archivo donde se encuentran las vistas de nuestro servidor. Existe una vista por cada
     página disponible de nuestro servidor, por lo tanto en nuestro caso hay 3: para la página principal, para la página
-    de archivo donde se encuentran todos los resultados de los proyectos y la página de resultados a partir de una url
+    de archivo donde se encuentran todos los resultados de los proyectos y la página de resultados a partir de una URL
     dada.
 
   \end{itemize}
 \end{itemize}
 
-Por lo tanto el proceso sería, el servidor django recibe una URL, el controlador buscará cual es la vista correcta
+Por lo tanto el proceso sería, el servidor Django recibe una URL, el controlador buscará cual es la vista correcta
 para esa URL, y en caso de éxito, llamaría a la vista. La vista realizaría todo lo que este indicado en sí para cada caso,
 y respondería renderizando la plantilla HTML.
 
@@ -591,14 +586,14 @@ y respondería renderizando la plantilla HTML.
 \label{subsubsec:bbdd}
 Se trata de una base de datos relacional, que viene por defecto en Django.
 En la base de datos almacenamos nombre del proyecto, número de clases de UML,
-número de clases de Python, intersección de clases, número de clases sin correción, número de clases
-corregidas por errores de mayúsculas y número de clases corregidas por errores en distancia hamming.
+número de clases de Python, intersección de clases, número de clases sin corrección, número de clases
+corregidas por errores de mayúsculas y número de clases corregidas por errores en distancia de Hamming.
 
 
 \subsubsection{GitHub}
 \label{subsubsec:github}
-Se realiza una descarga del repositorio para poder realizar el analisis del proyecto. La descarga
-se hace ejecutando el siguiente codigo:
+Se realiza una descarga del repositorio para poder realizar el análisis del proyecto. La descarga
+se hace ejecutando el siguiente código:
 
 \begin{figure}[htb]
   \centering
@@ -634,18 +629,18 @@ El funcionamiento general de este programa consiste en:
     Una vez finalizado este proceso,
     se realiza un proceso de depuración en el que se eliminan duplicados.
     \item UML. Para este caso, se trata el archivo .xmi con un parser, el cual se encarga de extraer las etiquetas. Una vez
-    extraidas todas las etiquetas, hay que quedarse unicamente con aquellas consideras UML. Despues de esto,
+    extraídas todas las etiquetas, hay que quedarse únicamente con aquellas consideras UML. Después de esto,
     hay que fijarnos en aquellas marcadas como Clases, y de estas nos quedamos con el nombre de la clase.
 
-    Al igual que en python, se añaden todas los nombres de las clases de todos los archivos .xmi a una lista, y se
+    Al igual que en Python, se añaden todas los nombres de las clases de todos los archivos .xmi a una lista, y se
     realiza un proceso de depuración para eliminar duplicados.
   \end{itemize}
   \item Una vez obtenidos todos los nombres de las clases tanto para Python como para UML, se procede a realizar
   un análisis los nombres. Para facilitar las operaciones de análisis, se convierte las listas de clases en \textit{sets},
   que es un tipo de Python definido como colecciones de datos únicos no ordenados. El análisis se divide en tres partes:
   \begin{enumerate}
-    \item \textbf{Análisis sin correciones:} se calcula la intersección existente entre los dos sets. Es decir,
-    se crea un sets nuevo, con los nombres de las clases que tengan en común.
+    \item \textbf{Análisis sin correcciones:} se calcula la intersección existente entre los dos conjuntos. Es decir,
+    se crea un \emph{set} nuevo, con los nombres de las clases que tengan en común.
 
     \begin{figure}[htb]
       \centering
@@ -654,15 +649,15 @@ El funcionamiento general de este programa consiste en:
       \label{fig:pyumlsets}
     \end{figure}
 
-    \item \textbf{Análisis con correciones por minúsculas:} se convierte las clases en minúsculas y se vuelve a realizar
+    \item \textbf{Análisis con correcciones por minúsculas:} se convierte las clases en minúsculas y se vuelve a realizar
     la intersección. Se realiza la conversión del resto de clases que aun no han sido emparejadas, para que no haya valores
     a comparar ya añadidos.
 
     Es decir, el problema que solucionamos con esto es que si una clase en Python se llama 'Boss', y en UML se llama 'boss', con este método se
     consideran como iguales ya que el concepto 'Boss', está representado en UML.
 
-    \item \textbf{Análisis con correciones por distancia hamming:} la distancia hamming entre dos palabras es el número
-    de letras que tienen diferentes. Es decir, la distancia hamming entre \textit{padre} y \textit{madre} es 1.
+    \item \textbf{Análisis con correcciones por distancia de Hamming:} la distancia de Hamming entre dos palabras es el número
+    de letras que tienen diferentes. Es decir, la distancia de Hamming entre \textit{padre} y \textit{madre} es 1.
 
     Por lo tanto, se consideran equivalentes aquellas clases que presenten fallos por diferencias de 3 letras y una
     diferencia de longitud entre ellas menor a 3.
@@ -670,12 +665,12 @@ El funcionamiento general de este programa consiste en:
     Por ejemplo, la clase 'RBFN', será valida con la clase 'RBFNN'.
   \end{enumerate}
 
-  Una vez hechas todas las correciones, se devuelven los resultados obtenidos:
+  Una vez hechas todas las correcciones, se devuelven los resultados obtenidos:
   \begin{itemize}
     \item Número total de clases.
     \item Número de clases obtenidas sin corregir.
-    \item Número de clases obtenidas por correción de minúsculas.
-    \item Número de clases obtenidas por correción de distancia hamming.
+    \item Número de clases obtenidas por corrección de minúsculas.
+    \item Número de clases obtenidas por corrección de distancia de Hamming.
     \item Lista de clases de Python que no están representadas en UML.
     \item Lista de clases de UML que no existen en Python.
     \item Lista de clases en común de Python y UML.
@@ -683,7 +678,7 @@ El funcionamiento general de este programa consiste en:
   \item Una vez finalizado todo el análisis, se borra la carpeta del proyecto y finaliza el programa.
 \end{enumerate}
 
-Para realizar todo este proceso se utiliza 3 archivos, de manera que las funciones esten desacopladas
+Para realizar todo este proceso se utiliza 3 archivos, de manera que las funciones estén desacopladas
 entre sí, y cualquier modificación de una función no afecte a otras.
 
 Para no perder los datos se van almacenando en un fichero .csv.
