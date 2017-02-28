@@ -61,21 +61,21 @@
 \vspace{3cm}
 
 \Large
-TITULACIÓN EN MAYÚSCULAS
+GRADO EN INGENIERÍA DE SISTEMAS AUDIOVISUALES Y MULTIMEDIA
 
 \vspace{0.4cm}
 
 \large
-Curso Académico 2020/2021
+Curso Académico 2016/2017
 
 \vspace{0.8cm}
 
-Trabajo Fin de Carrera/Grado/Máster
+Trabajo Fin de Grado
 
 \vspace{2.5cm}
 
 \LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+HERRAMIENTA PARA EVALUAR LA CORRESPONDENCIA ENTRE MODELOS Y CÓDIGO EN PROYECTOS PYTHON
 
 \vspace{4cm}
 
@@ -99,11 +99,11 @@ Tutor : Dr. Gregorio Robles
 \vspace{-4cm}
 \begin{center}
 \LARGE
-\textbf{Proyecto Fin de Carrera}
+\textbf{Trabajo Fin de Grado}
 
 \vspace{1cm}
 \large
-FIXME: Título
+Herramiento para Evaluar la Correspondencia Entre Modelos y Código en Proyectos Python
 
 \vspace{1cm}
 \large
@@ -113,7 +113,7 @@ FIXME: Título
 \end{center}
 
 \vspace{1cm}
-La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 20XX, siendo calificada por el siguiente tribunal:
+La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de marzo de 2017, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
@@ -135,7 +135,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
+Fuenlabrada, a \qquad$\;\,$ de marzo de 2017
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -168,14 +168,14 @@ no sea para siempre, pero tu madre sí.
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
 El presente trabajo tiene como objetivo la creación de una aplicación web para analizar proyectos en
-GitHub, en particular dando métricas respecto a la sincronización de código Python con diagramas en UML. De esta manera, se
+GitHub, en particular ofreciendo métricas respecto a la correspondencia de código Python con diagramas en UML. De esta manera, se
 podrá obtener un valor de representación de UML en Python. Los resultados obtenidos
 podrían servir para conocer cuál es el uso que se le da a UML en un proyecto.
 
 La aplicación web se ha desarrollado con tecnologías HTML5, BootStrap y CSS3
 en el lado del cliente, y con tecnologías Django, Ctags y Python en el lado del servidor.
 
-La sincronización en cuanto a representación de código y diagramas UML permite conocer mejor el uso que los desarrolladores hacen del modelado, pudiendo identificarse errores, patrones de conducta, inconsistencias, etc. Para mostrar la conveniencia de la aplicación que se ha creado en este TFG, se ha aplicado en 108 proyectos Python alojados en GitHub que contienen diagramas UML.
+La correspondencia en cuanto a representación de código y diagramas UML permite conocer mejor el uso que los desarrolladores hacen del modelado, pudiendo identificarse errores, patrones de conducta, inconsistencias, etc. Para mostrar la conveniencia de la aplicación que se ha creado en este TFG, se ha aplicado a 108 proyectos Python alojados en GitHub que contienen diagramas UML.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,7 +185,7 @@ La sincronización en cuanto a representación de código y diagramas UML permite c
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-The present paper is based on the creation of a web application in order to analyze projects in
+The present graduate thesis is based on the creation of a web application in order to analyze projects in
 GitHub, giving values regarding the code quality of Python-UML. Thus, it could be possible to get a representative
 value of UML in Python. The results will be useful to know the use of UML in a given project.
 \newline
@@ -231,7 +231,7 @@ is to help to understand the use of UML in each project so as to comprehend the 
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
 \section{Motivación}
-\label{sec:}
+\label{sec:motivacion}
 
 La realización de este trabajo surge debido a la necesidad de poder obtener resultados
 concretos a aquellos proyectos almacenados en GitHub, de manera que se pueda establecer,
@@ -246,13 +246,15 @@ con UML es un buen proyecto. Por lo tanto, los resultados obtenidos en este prog
 se pueden asociar a calidad.
 
 \section{Proyectos similares}
-\label{sec:}
+\label{sec:similares}
 La Universidad de Gotemburgo junto con la URJC ha realizado análisis de UML, respecto al uso
 y estudio que se le da, pero no existe una herramienta como tal para la obtención
-de métricas para su análisis. Por lo tanto, esta se trata de un herramienta piloto.
+de métricas para su análisis. Por lo tanto, se trata de una herramienta piloto.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
+
+
 
 \begin{itemize}
   \item \textbf{Capítulo 1. Introducción:} aspectos básicos del trabajo.
@@ -297,7 +299,7 @@ en los nombres de las clases representadas en los archivos Python que tenga el p
   \item Extracción de los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
   están representadas.
   \item Optimizar código para los proyectos disponibles, tras realizar pruebas de test con e llos.
-  \item Desarrollo página web para mostrar los resultados y poder usar la aplicación en futuros proyectos
+  \item Desarrollo de una aplicación web para mostrar los resultados y poder usar la aplicación en futuros proyectos
   de manera rápida y sencilla.
 
 \end{itemize}
@@ -316,7 +318,7 @@ en los nombres de las clases representadas en los archivos Python que tenga el p
 \chapter{Estado del arte}
 
 Los temas a desarrollar de la situación actual los separamos en tres bloques: contexto general,
-lado cliente y lado servidor, especificando en cada uno las tecnologías usadas y los temas
+tecnologías en el cliente y tecnologías de servidor, especificando en cada uno las tecnologías usadas y los temas
 implicados.
 
 \section{UML: Unified Modeling Language}
@@ -391,7 +393,7 @@ una relación u otra.
   \item Dependencia o Instanciación: sucede cuando la instancia de un objeto depende de otro objeto.
 \end{itemize}
 
-\section{Lado servidor}
+\section{Tecnologías de Servidor}
 \label{sec:seccion2}
 
 \subsection{Django}
@@ -418,7 +420,7 @@ Normalmente es utilizada para la localización de las definiciones o tipos, por n
 
 \subsection{Python}
 \label{subsec:python}
-\textbf{Python}\footnote{https://www.python.org} es un lenguaje de programación, creado a finales de los 80, caracterizado
+\textbf{Python}\footnote{https://www.python.org} es un lenguaje de programación, creado a finales de los años 80 del siglo pasado, caracterizado
 por la legibilidad del código. Se caracteriza por ser:
 \begin{enumerate}
   \item Interpretado: no necesita de un compilador para ser ejecutados, sino de un interprete. El interprete
@@ -430,7 +432,7 @@ por la legibilidad del código. Se caracteriza por ser:
   \item Multiparadigma: permite distintas técnicas de programación (Orientación a objetos, funcional...)
 \end{enumerate}
 
-\section{Lado cliente}
+\section{Tecnologías en el Cliente}
 \label{sec:seccion3}
 
 \subsection{HTML5}
@@ -503,7 +505,7 @@ PANTALLAZO PAGINA WEB DEL FRONTAL AQUI
 
 Es necesario entender el funcionamiento de cada módulo, detallado a continuación.
 
-\subsection{Lado cliente}
+\subsection{Front-end (Cliente)}
 \label{subsec:cliente}
 \subsubsection{Frontal página web}
 \label{subsubsec:frontweb}
@@ -519,7 +521,7 @@ y no lleguen datos inesperados a nuestro servidor.
 La vista de resultados se trata de una tabla, formada por todos los elementos del objeto u objetos que se haya solicitado.
 PANTALLAZO DE LOS EJEMPLOS
 
-\subsection{Lado servidor}
+\subsection{Servidor (Back-end)}
 \label{subsec:servidor}
 \subsubsection{Servidor Django}
 \label{subsubsec:server}
@@ -693,7 +695,7 @@ Para no perder los datos se van almacenando en un fichero .csv.
 
 Para poder obtener resultados reales, se testea la aplicación con varios proyectos de GitHub.
 El profesor me facilitó una lista de proyectos en GitHub, que tienen archivos de UML y
-están veríficados. Esta lista incluía proyectos con distintos tipos de lenguaje de programación,
+están verificados. Esta lista incluía proyectos con distintos tipos de lenguaje de programación,
 y diferentes archivos UML, tal como la extensión .xmi, .uml y en formato imagen. El formato .uml
 no se considera estandarizado.
 Por lo tanto, del total de esta lista filtramos a aquellos archivos que sean de un proyecto
@@ -712,8 +714,8 @@ de ellos. Los gráficos que se muestran son:
   \item Extracto del total de proyectos, para poder analizarlos gráficamente
   \item Gráfica que se representa el porcentaje de clases de Python representadas con UML frente a el total
   de clases de Python
-  \item Gráfica de dos proyectos de ejemplo para interpretar las correciones realizadas por mayúsculas/minúsculas y
-  por distancia hamming
+  \item Gráfica de dos proyectos de ejemplo para interpretar las correcciones realizadas por mayúsculas/minúsculas y
+  por distancia de Hamming
 \end{itemize}
 
 
@@ -735,10 +737,10 @@ la mayoría de los proyectos, es superior en Python que en UML.
 Hay que tener en cuenta, que en esta gráfica solo se está teniendo en cuenta el número de clases de Python y el número
 de clases de UML, que no siempre van a ser equivalentes.
 
-Por lo tanto, con esta simple reperesentación, se puede extraer que la mayoría de clases de Python no tienen su equivalente
+Por lo tanto, con esta simple representación, se puede extraer que la mayoría de clases de Python no tienen su equivalente
 en UML, o lo que es lo mismo, no están modeladas en UML.
 
-Para demostrar esto de manera númerica nos basamos en la siguiente figura:
+Para demostrar esto de manera numérica nos basamos en la siguiente figura:
 
 \begin{figure}[htb]
   \centering
@@ -758,7 +760,7 @@ La figura \ref{fig:tablaresultados} muestra el total de los valores de los proye
 \end{itemize}
 
 Se observa que sólo el 3,04\% del total de clases de Python están modeladas en UML. De las cuales,
-el 86,90\% de las clases, no se les ha aplicado ninguna correción, por lo que se entiende que si no
+el 86,90\% de las clases, no se les ha aplicado ninguna corrección, por lo que se entiende que si no
 aparece modelada en UML, no es por un error ortográfico o similar.
 
 \subsection{Análisis de algunos proyectos}
@@ -827,15 +829,15 @@ clases a modelar, y que ningún proyecto con un número superior a 500 clases pres
 
 En conclusión, se modelan más con UML las clases de Python, cuando hay un número menor de clases de Python a modelar.
 
-\subsection{Correciones}
+\subsection{Correcciones}
 \label{subsec:correcciones}
-Las correciones aplicadas representan un 13,10\% de la intersección de clases UML y Python, tal como hemos visto en la figura
+Las correcciones aplicadas representan un 13,10\% de la intersección de clases UML y Python, tal como hemos visto en la figura
 \ref{fig:tablaresultados}. Para dos proyectos de ejemplo se obtiene lo siguiente:
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=\textwidth, keepaspectratio]{img/GraficasResultados/TFGA-M,pySLD}
-  \caption{Proyectos de ejemplo de correciones}
+  \caption{Proyectos de ejemplo de correcciones}
   \label{fig:TFGA-M,pySLD}
 \end{figure}
 
@@ -843,7 +845,7 @@ Para el proyecto identificado como \textit{aydevosotros/TFG-AntonioMolina}, tras
 un 100\% de modelado UML.
 
 Para el proyecto identificado como \textit{opengeogroep/pySLD}, tras las correcciones se modelan dos clases de Python,
-que no estaban modeladas antes de la correción.
+que no estaban modeladas antes de la corrección.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -862,7 +864,7 @@ la cual se espera que sea de apoyo para ellos, para poder facilitar sus labores 
 realizados respecto al uso de UML.
 
 Esta aplicación ya ha servido para analizar el repositorio de proyectos facilitados por el profesor,
-y poder hacer una interpretación de los resultados obtenidos. El disponer de estos proyectos veríficados
+y poder hacer una interpretación de los resultados obtenidos. El disponer de estos proyectos verificados
 que tenían algo de UML, ha servido para la optimización de la aplicación al ser probada con distintas proyectos,
 los cuales presentaban peculiaridades diferentes, con los que se observaban errores que se han ido corrigiendo.
 
@@ -873,7 +875,7 @@ y poder usarse a posteriori para nuevos proyectos que puedan aparecer.
 \label{sec:consecucion-objetivos}
 
 El objetivo general del trabajo era la realización de una aplicación web, a la cual se le
-indicaba una URL de un proyecto de GitHub, y esta devolvía unos parametros para poder
+indicaba una URL de un proyecto de GitHub, y esta devolvía unos parámetros para poder
 entender el uso de UML. Este objetivo, tal como se ha ido mostrando a lo largo del proyecto
 se ha cumplido totalmente. Además, se ha añadido la funcionalidad de poder consultar todos los
 proyectos ya analizados anteriormente.
@@ -898,7 +900,7 @@ A lo largo del grado he tenido distintas asignaturas sobre programación, pero en
 debido a las tecnologías utilizadas hay que destacar:
 
 \begin{enumerate}
-  \item Protocolos para la transmisión de audio y video, en la cual aprendí sobre el uso de Python y el uso de sus librerias.
+  \item Protocolos para la transmisión de audio y vídeo, en la cual aprendí sobre el uso de Python y el uso de sus librerías.
   \item Laboratorios de tecnologías audiovisuales en la web, en la cual aprendí sobre el el desarrollo web tanto del lado cliente
   como del lado servidor, con tecnologías usadas en el proyecto (Django, CSS, JavaScript, HTML5)
 \end{enumerate}
@@ -907,8 +909,8 @@ También he de destacar mi periodo de prácticas curriculares, en el cuál destacó:
 \begin{enumerate}
   \item El aprendizaje que obtuve sobre Microsoft Excel, para el análisis de información a gran escala y la creación de gráficos
   para poder interpretar dicha información.
-  \item Capacidad de trabajo autónomo, con resolución de cuestiones con busquedas en internet o libros.
-  \item Planifición de un proyecto.
+  \item Capacidad de trabajo autónomo, con resolución de cuestiones con búsquedas en internet o libros.
+  \item Planificación de un proyecto.
 \end{enumerate}
 
 Y a modo general, debido al carácter de mi grado que se encuentra en constante desarrollo y cambio, me ha servido para estar
@@ -929,7 +931,7 @@ Este trabajo me ha servido para adquirir nuevos conocimientos o para profundizar
   de los resultados del proyecto.
   \item Django. Conocía Django de la asignatura de Tecnologías web, pero el proyecto me ha servido para hacer un uso más profundo,
   y creando una web a mi gusto, con un estilo totalmente libre.
-  \item La creación de la memoria con \LaTeX{}. El desarrollo de esta memoría se ha realizado con \LaTeX{}, herramienta que nunca había
+  \item La creación de la memoria con \LaTeX{}. El desarrollo de esta memoria se ha realizado con \LaTeX{}, herramienta que nunca había
   utilizado. Aunque al principio cuesta adaptarse, se obtienen resultados muy buenos de aspecto, de manera sencilla una vez conoces su sintaxis.
 \end{enumerate}
 
@@ -937,7 +939,7 @@ Este trabajo me ha servido para adquirir nuevos conocimientos o para profundizar
 \section{Trabajos futuros}
 \label{sec:trabajos_futuros}
 
-Al tratarse de una herramienta píloto, presenta varios trabajos a futuro, para poder ampliar el uso de esta aplicación.
+Al tratarse de una herramienta piloto, presenta varios trabajos a futuro, para poder ampliar el uso de esta aplicación.
 
 \begin{enumerate}
   \item \textbf{Ampliar a más lenguajes de programación.} Actualmente solo sirve para analizar proyectos que
@@ -949,14 +951,14 @@ Al tratarse de una herramienta píloto, presenta varios trabajos a futuro, para p
   \begin{itemize}
     \item Valorar no solo por el nombre de la clase, sino por los métodos y atributos que esta tenga.
     \item Establecer posibles relaciones como agregación, herencia, composición...
-    \item Actualmente solo nos fijamos en archivos .xmi de UML, que son los estándarizados. Podemos extraer información de otros
+    \item Actualmente solo nos fijamos en archivos .xmi de UML, que son los estandarizados. Podemos extraer información de otros
     archivos tales como los .uml o de imágenes, ya que es común presentar el modelado de UML en una imagen.
     Esto ampliaría el alcance ya que de la lista de archivos de UML facilitada por el tutor, hay 8106 archivos de UML. De los cuales,
     204 son los que tienen una extensión de .xmi y quedan reducidos a 108 proyectos.
     261 archivos equivalen a la extensión .uml, y el resto, 7641 corresponden a archivos de imagen (.gif, .png, .svg \ldots )
   \end{itemize}
   \item \textbf{Agregar elementos a la web.} Mejoras para la experiencia de usuario como poder descargar un listado de los proyectos
-  ya analizados en excel, calcular el tiempo estimado en base al peso total del proyecto, enviar los resultados por correo para que no se
+  ya analizados en Excel, calcular el tiempo estimado en base al peso total del proyecto, enviar los resultados por correo para que no se
   tenga que esperar con la página abierta \ldots
 \end{enumerate}
 
@@ -965,7 +967,7 @@ Al tratarse de una herramienta píloto, presenta varios trabajos a futuro, para p
 \label{sec:valoracion}
 
 Desde un primer momento, no sabía sobre que enfocar mi TFG, lo único que tenía claro era que me gustaba programar y
-quería hacer algo sobre programar, pero que tuviera tambien una parte Front, no solo Back.
+quería hacer algo sobre programar, pero que tuviera también una parte Front, no solo Back.
 
 Para poder desarrollar algo así, pregunte a los profesores de programación, hasta que Gregorio me comento la posibilidad de realizar
 este trabajo. Aunque era un tema que no conocía, me llamó la atención el alcance que podría tener, y que realmente se le podría dar
