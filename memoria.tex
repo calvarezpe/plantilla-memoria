@@ -30,6 +30,7 @@
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+\usepackage{listings}
 
 \title{Memoria del Proyecto}
 \author{Nombre del autor}
@@ -307,7 +308,29 @@ en los nombres de las clases representadas en los archivos Python que tenga el p
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
+La planificación temporal ha consistido en:
 
+\begin{enumerate}
+  \item Reunión con Gregorio dónde me explica su idea del tema del proyecto y el objetivo que se persigue.
+  \item Estudiar y entender UML, para qué se usa, cómo es, dónde se usa...
+  \item Definición de la arquitectura de la aplicación.
+  \item Reunión con Gregorio para aclarar dudas sobre UML y mostrar la arquitectura de la aplicación.
+  \item Desarrollo de la aplicación:
+  \begin{itemize}
+    \item Aprender a usar Ctags para extraer las clases en archivos Python.
+    \item Extraer las clases de UML de archivos .xmi.
+    \item Comparación de clases y dar resultados.
+    \item Pruebas del programa con 10 proyectos elegidos al azar para optimizarlo.
+    \item Obtención de resultados para todos los proyectos disponibles. Se automatiza el proceso con script externo.
+  \end{itemize}
+  \item Desarrollo de la página web con Django, para facilitar el uso de la aplicación y mostrar los resultados de proyectos ya analizados.
+  \begin{itemize}
+    \item Elección de las vistas que tendrá.
+    \item Especificación del módelo de datos.
+    \item Conexión con la aplicación para analizar proyectos.
+    \item Mejorar el aspecto de la web.
+  \end{itemize}
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -510,16 +533,35 @@ Es necesario entender el funcionamiento de cada módulo, detallado a continuación
 \subsubsection{Frontal página web}
 \label{subsubsec:frontweb}
 El frontal de la página web, es la parte que ve el cliente. Se apuesta por un modelo sencillo
-y claro, que no permita dudas al uso.
-PANTALLAZO
+y claro, que no permita dudas al uso, tal como observamos en la figura \ref{fig:mainpage}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/mainpage}
+  \caption{Página principal de la aplicación web.}
+  \label{fig:mainpage}
+\end{figure}
 
 Se muestra un cuadro en el cual se debe ingresar la página web donde está alojado el repositorio de GitHub,
 un botón para proceder al envío de la URL y un enlace para consultar los proyectos disponibles.
 El método de envío del formulario es mediante POST, ya que permite que los datos enviados no sean visibles al usuario,
 y no lleguen datos inesperados a nuestro servidor.
 
-La vista de resultados se trata de una tabla, formada por todos los elementos del objeto u objetos que se haya solicitado.
-PANTALLAZO DE LOS EJEMPLOS
+Tras ingresar el link de un proyecto válido en GitHub, se muestran los resultados para dicho proyecto. La figura \ref{fig:resultsproject} muestra un ejemplo.
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/resultsproject}
+  \caption{Ejemplo de resultados de un proyecto.}
+  \label{fig:resultsproject}
+\end{figure}
+
+Otra opción de la página, es la consulta de los proyectos analizados hasta el momento. La vista de resultados se trata de una tabla, formada por todos los resultados de todos los proyectos, tal como muestra la figura \ref{fig:archive}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[width=10cm, keepaspectratio]{img/archive}
+  \caption{Vista de la página Archive.}
+  \label{fig:archive}
+\end{figure}
 
 \subsection{Servidor (Back-end)}
 \label{subsec:servidor}
@@ -986,6 +1028,27 @@ He aprendido el proceso completo de documentación y creación de una aplicación w
 \chapter{Manual de usuario}
 \label{app:manual}
 
+\section{Instalación del servidor}
+\label{sec:inst_server}
+Para poder iniciar el servidor es necesario tener instalado:
+
+\begin{itemize}
+  \item Python
+  \item Exuberant Ctags. Para instalarlo hay que ejecutar:
+  \begin{lstlisting}
+    ~$ sudo apt-get install exuberant-ctags
+  \end{lstlisting}
+  \item Django. Para instalarlo hay que ejecutar:
+  \begin{lstlisting}
+    ~$ pip install Django==1.10.6
+  \end{lstlisting}
+\end{itemize}
+
+Una vez instalado todo lo necesario, desde la carpeta donde se encuentra el proyecto se ejecuta lo siguiente:
+\begin{lstlisting}
+  ~$ python manage.py runserver
+\end{lstlisting}
+De esta manera nuestro servidor ya empieza a escuchar en el puerto 8000 (default).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
