@@ -243,7 +243,7 @@ is to help to understand the use of UML in each project so as to comprehend the 
 \section{Motivación}
 \label{sec:motivacion}
 
-La motivación principal de este trabajo es ayudar a entender el porque del poco uso de UML en la actualidad. Aunque UML está considerado como el lenguaje de modelado estándar en el análisis y diseño de sistemas, desde hace varios años su uso ha ido decreciendo, de manera que surge la cuestión de porqué este decrecimiento. Se ha observado que menos del 1\% de todos los repositorios almacenados en GitHub tienen su correspondiente representación en diagramas UML.
+La motivación principal de este trabajo es ayudar a entender el porque del poco uso de UML en la actualidad. Aunque UML está considerado como el lenguaje de modelado estándar en el análisis y diseño de sistemas, desde hace varios años su uso ha ido decreciendo, de manera que surge la cuestión de porqué este decrecimiento. Se ha observado que menos del 1\% de todos los repositorios almacenados en GitHub tienen su correspondiente representación en diagramas UML~\cite{hebig2016quest}.
 
 Aunque no hay nada demostrado sobre ello, por experiencias de usuarios se establece que la creación de diagramas es útil para dar soporte a ideas y formas de manera rápida y sencilla, y esto no lo cumple UML ya que con su desarrollo se ha ido aumentando su complejidad lo que conlleva más dificultad a la hora de generar diagramas. Otro motivo que se le da es la aparición de metodologías ágiles, que están en constante cambio y crear representaciones de UML sobre estos proyectos, sería un \emph{handicap} más que una ayuda.
 
@@ -256,7 +256,10 @@ Se pretende dar apoyo al estudio realizado por la URJC, la Universidad de Gotemb
 \section{Contexto}
 \label{sec:contexto}
 
-Actualmente, se han realizado estudios por la Universidad de Gotemburgo en colaboración con la URJC sobre el uso que se le da a UML en cuanto a sus representaciones, pero no existe una herramienta que automatice este trabajo de manera que se obtengan métricas que den apoyo a estos estudios. Por lo tanto, se trata de una herramienta piloto para facilitar la labor de los investigadores.
+Actualmente, se han realizado estudios por las Universidades de Leiden (Países Bajos) y Universidad de Gotemburgo - Chalmers University, esta última en colaboración con la URJC, sobre el uso que se le da a UML en cuanto a sus representaciones. Estas investigaciones van dirigidas al estudio de modelización en proyectos de software libre~\cite{hebig2016quest}, la relación entre anti-patrones de diseño en diagramas UML y código fuente~\cite{karasneh2016studying}, el nivel de detalle que han de tener los diagramas UML para facilitar la mantenibilida del código fuente~\cite{fernandez2016does}, o el uso de estos diagramas con fines docentes~\cite{karasneh2015using}.
+  
+
+Sin embargo, no existe una herramienta que automatice el trabajo de ligar diagramas de clase con código fuente, manera que se obtengan métricas que den apoyo a estos estudios. Por lo tanto, este trabajo presenta una herramienta piloto para facilitar la labor de los investigadores, al menos para proyectos que hacen uso del lenguaje de programación Python.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
@@ -286,41 +289,48 @@ Actualmente, se han realizado estudios por la Universidad de Gotemburgo en colab
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Objetivos}
+\chapter{Objetivos y Planificación}
 \label{chap:objetivos}
 
 \section{Objetivo general}
 \label{sec:objetivo-general}
-El objetivo principal de este trabajo es la realización de una aplicación web en la cual se obtenga
-unos parámetros objetivos para poder evaluar la calidad de la representación de UML sobre el proyecto a analizar,
-el cual debe de estar en GitHub para poder realizar la descarga, basándose
-en los nombres de las clases representadas en los archivos Python que tenga el proyecto.
+
+El objetivo principal de este trabajo es la realización de una aplicación web mediante la cual se puede obtener la correspondencia entre los diagramas de clase UML y el código fuente en proyectos Python.
+
+% en la cual se obtenga
+% unos parámetros objetivos para poder evaluar la calidad de la representación de UML sobre el proyecto a analizar,
+%el cual debe de estar en GitHub para poder realizar la descarga, basándose
+% en los nombres de las clases representadas en los archivos Python que tenga el proyecto.
 
 \section{Objetivos específicos}
 \label{sec:objetivos-especificos}
-\begin{itemize}
+
+El objetivo general se ha desgranado en una serie de objetivos específicos, que son los siguientes:
+
+\begin{enumerate}
   \item Estudiar sintaxis de UML y sus archivos para poder entender las posibles formas en las que
   podemos obtener un archivo UML y los distintos tipos.
   \item Concretar número de proyectos de los que disponemos, y tenemos constancia que son proyectos
-  con modelado UML. Verificados por la Universidad de Gotemburgo.
-  \item Extracción de los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
+  con modelado UML. En esta tarea he podido contar con la colaboración de la Universidad de Gotemburgo, ya que ha verificado que efectivamente los proyectos que se van a analizar contienen diagramas de clases en UML.
+  \item Extraer los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
   están representadas.
   \item Optimizar código para los proyectos disponibles, tras realizar pruebas de test con  ellos.
-  \item Desarrollo de una aplicación web para mostrar los resultados y poder usar la aplicación en futuros proyectos
+  \item Desarrollar una aplicación web para mostrar los resultados y poder usar la aplicación en futuros proyectos
   de manera rápida y sencilla.
 
-\end{itemize}
+\end{enumerate}
+
 
 \section{Planificación temporal}
 \label{sec:planificacion-temporal}
 
-La planificación temporal ha consistido en:
+La planificación temporal ha consistido en los siguientes pasos:
 
 \begin{enumerate}
   \item Reunión con el tutor dónde me explica su idea del tema del proyecto y el objetivo que se persigue.
-  \item Estudiar y entender UML, para qué se usa, cómo es, dónde se usa...
+  \item Estudiar y entender el lenguaje de modelado UML, para qué se usa, cómo es, dónde se usa...
   \item Definición de la arquitectura de la aplicación.
-  \item Reunión con el tutor para aclarar dudas sobre UML y mostrar la arquitectura de la aplicación.
+  \item Reunión con el tutor para aclarar dudas sobre UML y debatir la propuesta de arquitectura de la aplicación.
   \item Desarrollo de la aplicación:
   \begin{itemize}
     \item Aprender a usar Ctags para extraer las clases en archivos Python.
@@ -329,13 +339,16 @@ La planificación temporal ha consistido en:
     \item Pruebas del programa con 10 proyectos elegidos al azar para optimizarlo.
     \item Obtención de resultados para todos los proyectos disponibles. Se automatiza el proceso con \emph{script} externo.
   \end{itemize}
+  \item Lectura de los artículos de investigación relacionados con la aplicación.
   \item Desarrollo de la página web con Django, para facilitar el uso de la aplicación y mostrar los resultados de proyectos ya analizados.
   \begin{itemize}
-    \item Elección de las vistas que tendrá.
+    \item Elección de las vistas que tendrá la aplicación.
     \item Especificación del modelo de datos.
     \item Conexión con la aplicación para analizar proyectos.
     \item Mejorar el aspecto de la web.
   \end{itemize}
+  \item Elaboración de la memoria
+  \item Elaboración de la presentación para la defensa del Trabajo Fin de Grado
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -346,22 +359,25 @@ La planificación temporal ha consistido en:
 \cleardoublepage
 \chapter{Estado del arte}
 
-Los temas a desarrollar de la situación actual los separamos en tres bloques: contexto general,
+Todo proyecto de ingeniería parte del trabajo realizado por otros. En el caso del presente proyecto, esto no es diferente. Para lograr los objetivos que me he marcado, he hecho uso de tecnologías asentadas.
+
+Las tecnologías utilizadas se van a presentar en este capítulo. Según su aplicación, las he dividido en tres bloques: contexto general,
 tecnologías en el cliente y tecnologías de servidor, especificando en cada uno las tecnologías usadas y los temas
 implicados.
 
 \section{UML: Unified Modeling Language}
 \label{sec:seccion1}
 
-Es un lenguaje de modelado de software para la creación de esquemas, diagramas y documentación
+El lenguaje de modelado unificado (UML) es un lenguaje de modelado de software para la creación de esquemas, diagramas y documentación
 para el desarrollo software, estandarizado en 2005, aunque el primer borrador fue lanzado
-en 1997. Este estándar pretende unificar la manera de visualizar el diseño de un sistema.
+en 1997~\cite{booch1996unified,rumbaugh2004unified}. Este estándar pretende unificar la manera de visualizar el diseño de un sistema.
 No es un lenguaje de programación como tal, sino un conjunto de normas estándares gráficos
 respecto al sistema.
 
 Sirve para dar una representación gráfica de los procesos o métodos del sistema. UML cuenta con distintos
 tipos de diagramas, dependiendo del enfoque a representar del sistema. Los más usados son
 los casos de uso, clase y secuencia.
+
 \begin{itemize}
   \item \textbf{Diagrama de casos de uso:} representa todas las posibilidades de uso de un sistema
   \item \textbf{Diagrama de clases:} describe la estructura mostrando las clases con sus atributos
@@ -448,12 +464,12 @@ Para el caso de la figura \ref{fig:ejemplouml} se observa 3 clases, en las que \
 Las clases \textit{Auto} y \textit{Camioneta} tienen los atributos y métodos de Vehículo, además de sus atributos y métodos particulares.
 
 \begin{lstlisting}[caption={Ejemplo de una clase en un archivo xmi},label={lst:ejemploxmi},breaklines=true, basicstyle=\small]
-<UML:Class visibility="public" isSpecification="false" namespace="Logical View" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="n0m23KIFJiLQ" name="Pokemon">
+<UML:Class visibility=``public'' isSpecification=``false'' namespace=``Logical View'' isAbstract=``false'' isLeaf=``false'' isRoot=``false'' xmi.id=``n0m23KIFJiLQ'' name=``Pokemon''>
        <UML:Classifier.feature>
         ...
-        <UML:Attribute visibility="private" isSpecification="false" xmi.id="w6TDmoeRlXg3" type="35BlKE3lbriZ" name="level"/>
+        <UML:Attribute visibility=``private'' isSpecification=``false'' xmi.id=``w6TDmoeRlXg3'' type=``35BlKE3lbriZ'' name=``level''/>
         ...
-        <UML:Operation visibility="public" isSpecification="false" isQuery="false" isAbstract="false" isLeaf="false" isRoot="false" xmi.id="fm0T9HHMAtpO" name="print_ataques_pokemon"/>
+        <UML:Operation visibility=``public'' isSpecification=``false'' isQuery=``false'' isAbstract=``false'' isLeaf=``false'' isRoot=``false'' xmi.id=``fm0T9HHMAtpO'' name=``print_ataques_pokemon''/>
        </UML:Classifier.feature>
 </UML:Class>
 \end{lstlisting}
@@ -474,7 +490,7 @@ Para poder generar los diagramas se usan programas externos, que a partir de dis
 \subsection{Django}
 \label{subsec:django}
 \textbf{Django}\footnote{https://www.djangoproject.com/} es un framework de software libre de desarrollo web para crear aplicaciones Web de alta calidad
-disminuyendo código, basado en DRY (Don't repite yourself). Surgió debido a las necesidades de la aplicación
+disminuyendo código, basado en DRY (Don't Repite Yourself)~\cite{forcier2008python}. Surgió debido a las necesidades de la aplicación
 de noticias de la World Company.
 
 Se aproxima al patrón de diseño MVC (Modelo-Vista-Controlador), en el cual se separa
@@ -497,7 +513,7 @@ modificación de un componente, este no afecte a otro, es decir, tiene un acoplam
 \label{subsec:ctags}
 \textbf{Exuberant ctags}\footnote{http://ctags.sourceforge.net} es una variante extendida de ctags, que es una herramienta de programación,
 la cual genera un archivo de etiquetas en texto plano a partir
-del código fuente de un programa. En el archivo de etiquetas, se indican funciones,
+del código fuente de un programa~\cite{hiebert1999exuberant}. En el archivo de etiquetas, se indican funciones,
 variables, clases, macros... dependiendo del lenguaje de programación.
 Actualmente soporta 41 lenguajes de programación.
 
@@ -507,7 +523,7 @@ Por ejemplo, el resultado de análisis de un fichero con una clase llamada \texti
 
   \begin{lstlisting}
     ...
-    claseprueba	holamundo.py	/^class claseprueba():$/;"	c
+    claseprueba	holamundo.py	/^class claseprueba():$/;''	c
     ...
   \end{lstlisting}
 
@@ -516,7 +532,7 @@ Simplemente por el identificador del final, c, ya sabemos que es una clase, y el
 \subsection{Python}
 \label{subsec:python}
 \textbf{Python}\footnote{https://www.python.org} es un lenguaje de programación, creado a finales de los años 80 del siglo pasado, caracterizado
-por la legibilidad del código. Se caracteriza por ser:
+por la legibilidad del código~\cite{van2003python,summerfield2010programming}. Se caracteriza por ser:
 \begin{enumerate}
   \item Interpretado: no necesita de un compilador para ser ejecutados, sino de un interprete. El interprete
   ejecuta el programa directamente, no genera un ejecutable.
@@ -543,17 +559,18 @@ Si el proyecto existe, devuelve un objeto JSON y la cabecera HTTP con el código 
 
 \subsection{HTML5}
 \label{subsec:html5}
-Quinta versión de \textbf{HTML} (HyperText Markup Language) lanzada en 2014. Se trata de un lenguaje de marcado para la realizar páginas web de manera
+Quinta versión de \textbf{HTML} (HyperText Markup Language) lanzada en 2014~\cite{pilgrim2010html5,gauchat2012gran}. Se trata de un lenguaje de marcado para la realizar páginas web de manera
 estructurada. Se incluyen nuevos elementos, atributos y comportamientos. También incluye más tecnologías
 que permiten a las páginas webs ser mas diversas y atractivas, soportado por la mayoría de navegadores.
 
 Cuenta con numerosas etiquetas para contenido multimedia, que lo hace interesante debido a
-que no es necesario el uso de Flash, ni de instalar nada de forma adicional.
+que no es necesario el uso de Flash, ni de instalar nada de forma adicional. Además, y como gran novedad respecto a versiones anteriores del mismo estándar, provee con una serie de interfaces (APIs) para JavaScript, permitiendo la creación de aplicaciones web con HTML5 que compitan con aplicaciones de escritorio, con todas las consecuencias de desarrollo y de uso que esto acarrea.
 
 \subsection{CSS3}
 \label{subsec:CSS3}
+
 \textbf{CSS3} (Cascading StyleSheets) es la última evolución de las hojas de estilo en cascada CSS, que es un lenguaje de diseño gráfico para la presentación de documentos
-definidos en HTML. Es la mejor forma para separar contenidos y su presentación.
+definidos en HTML~\cite{mcfarland2012css3,gauchat2012gran}. Es la mejor forma para separar contenidos y su presentación.
 El W3C apostó por el desarrollo y estandarización de CSS y en 1996 publicó la primera recomendación.
 
 Con HTML se marcan los contenidos de la página, y se utiliza CSS para definir el aspecto de cada
@@ -564,7 +581,8 @@ Las partes experimentales son especiales para cada navegador, y no es recomendab
 
 \subsection{JavaScript}
 \label{subsec:javascript}
-JavaScript es un lenguaje de programación ligero e interpretado. Su uso principal es en páginas web pero también se usa en otros entornos.
+
+JavaScript es un lenguaje de programación ligero e interpretado~\cite{flanagan2006javascript,gauchat2012gran}. Su uso principal es en páginas web pero también se usa en otros entornos.
 Surgió la necesidad, en los años 90, la creación de un nuevo lenguaje de programación debido a la creación de las aplicaciones webs. El problema que se planteaba con las aplicaciones webs en esa fecha era la baja velocidad que los usuarios tenían en internet, de manera que para poder ofrecer aplicaciones webs sin esperar mucho tiempo, surgió la necesidad de un lenguaje de programación que se ejecutase en el navegador del usuario, y no en un servidor como era usual.
 
 JavaScript se caracteriza por ser orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.
@@ -572,15 +590,15 @@ JavaScript se caracteriza por ser orientado a objetos, basado en prototipos, imp
 
 \subsection{BootStrap}
 \label{subsec:bootstrap}
-\textbf{BootStrap}\footnote{http://getbootstrap.com} es un framework desarrollado y liberado por Twitter. Surge a raíz de la multitud de ingenieros trabajando en Twitter por el mismo proyecto, para utilizar todos el mismo framework. Se lanzó de manera pública en agosto de 2011, en la plataforma GitHub, pero debido a su potencial, numerosos programadores empezaron a colaborar sobre este proyecto, convirtiéndolo en el proyecto Open Source más activo del mundo.
+\textbf{BootStrap}\footnote{http://getbootstrap.com} es un framework desarrollado y liberado por Twitter~\cite{cochran2012twitter}. Surge a raíz de la multitud de ingenieros trabajando en Twitter por el mismo proyecto, para utilizar todos el mismo framework. Se lanzó de manera pública en agosto de 2011, en la plataforma GitHub, pero debido a su potencial, numerosos programadores empezaron a colaborar sobre este proyecto, convirtiéndolo en el proyecto Open Source más activo del mundo.
 
 BootStrap se trata de una colección de elementos web personalizables y funciones en una única herramienta. Su principal objetivo es facilitar el diseño web, basándose en una combinación de HTML, CSS y JavaScript. Se encuentra en continuo desarrollo gracias al Open Source.
 
 Se puede hacer uso de varias formas, pero nosotros lo haremos a través de la CDN de BootStrap incluyendo el siguiente código en nuestro archivo HTML:
 
   \begin{lstlisting}[basicstyle=\small, language=HTML, breaklines=true]
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <link rel=``stylesheet'' href=``//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css''>
+    <script src=``//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js''></script>
   \end{lstlisting}
 
 BootStrap facilita la creación de páginas webs sencillas con interfaces limpias para el usuario y de manera \emph{responsive}, es decir, que se adapta a todo tipo de dispositivos. Es compatible con la mayoría de navegadores actuales.
@@ -730,9 +748,10 @@ Por lo tanto el proceso sería, el servidor Django recibe una URL, el controlador
 para esa URL, y en caso de éxito, llamaría a la vista. La vista realizaría todo lo que este indicado en sí para cada caso,
 y respondería renderizando la plantilla HTML.
 
-\subsubsection{BBDD SQLite3}
+\subsubsection{Base de datos SQLite3}
 \label{subsubsec:bbdd}
-Se trata de una base de datos relacional, que viene por defecto en Django.
+
+SQLite3 es una base de datos relacional, que viene por defecto en Django~\cite{owens2010sqlite}.
 En la base de datos almacenamos nombre del proyecto, número de clases de UML,
 número de clases de Python, intersección de clases, número de clases sin corrección, número de clases
 corregidas por errores de mayúsculas y número de clases corregidas por errores en distancia de Hamming.
@@ -808,16 +827,16 @@ El funcionamiento general de este programa consiste en:
     la intersección. Se realiza la conversión del resto de clases que aun no han sido emparejadas, para que no haya valores
     a comparar ya añadidos.
 
-    Es decir, el problema que solucionamos con esto es que si una clase en Python se llama 'Boss', y en UML se llama 'boss', con este método se
-    consideran como iguales ya que el concepto 'Boss', está representado en UML.
+    Es decir, el problema que solucionamos con esto es que si una clase en Python se llama `Boss', y en UML se llama `boss', con este método se
+    consideran como iguales ya que el concepto `Boss', está representado en UML.
 
     \item \textbf{Análisis con correcciones por distancia de Hamming:} la distancia de Hamming entre dos palabras es el número
     de letras que tienen diferentes. Es decir, la distancia de Hamming entre \textit{padre} y \textit{madre} es 1.
 
-    Por lo tanto, se consideran equivalentes aquellas clases que presenten fallos por diferencias de 3 letras y una
+    Por lo tanto, se consideran equivalentes aquellas clases que presenten fallos por diferencias de tres letras y una
     diferencia de longitud entre ellas menor a 3.
 
-    Por ejemplo, la clase 'RBFN', será valida con la clase 'RBFNN'.
+    Por ejemplo, la clase `RBFN', será valida con la clase `RBFNN'.
   \end{enumerate}
 
   Una vez hechas todas las correcciones, se devuelven los resultados obtenidos:
