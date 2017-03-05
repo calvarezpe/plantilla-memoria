@@ -76,7 +76,7 @@ Trabajo Fin de Grado
 \vspace{2.5cm}
 
 \LARGE
-HERRAMIENTA PARA EVALUAR LA CORRESPONDENCIA ENTRE MODELOS Y CÓDIGO EN PROYECTOS PYTHON
+HERRAMIENTA PARA EVALUAR LA CORRESPONDENCIA ENTRE MODELOS UML Y CÓDIGO FUENTE EN PROYECTOS PYTHON
 
 \vspace{4cm}
 
@@ -104,7 +104,7 @@ Tutor : Dr. Gregorio Robles
 
 \vspace{1cm}
 \large
-Herramienta para Evaluar la Correspondencia Entre Modelos y Código en Proyectos Python
+Herramienta para Evaluar la Correspondencia Entre Modelos UML y Código Fuente en Proyectos Python
 
 \vspace{1cm}
 \large
@@ -176,13 +176,13 @@ Muchas gracias a todos, que aunque no os nombre, todos sabéis por quien va cada 
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-El presente trabajo tiene como objetivo la creación de una aplicación web para analizar proyectos en
-GitHub, en particular ofreciendo métricas respecto a la correspondencia de código Python con diagramas en UML. De esta manera, se
+El presente trabajo tiene como objetivo la creación de una aplicación web para ofrecer métricas respecto a la correspondencia de código Python con diagramas en UML. De esta manera, se
 podrá obtener un valor de representación de UML en Python. Los resultados obtenidos
 podrían servir para conocer cuál es el uso que se le da a UML en un proyecto.
 
 La aplicación web se ha desarrollado con tecnologías HTML5, BootStrap y CSS3
 en el lado del cliente, y con tecnologías Django, Ctags y Python en el lado del servidor.
+En la actualidad está orientada al análisis de proyectos en GitHub, pero su uso se puede generalizar a cualquier otra plataforma.
 
 La correspondencia en cuanto a representación de código y diagramas UML permite conocer mejor el uso que los desarrolladores hacen del modelado, pudiendo identificarse errores, patrones de conducta, inconsistencias, etc. Para mostrar la conveniencia de la aplicación que se ha creado en este TFG, se ha aplicado a 108 proyectos Python alojados en GitHub que contienen diagramas UML.
 
@@ -194,18 +194,11 @@ La correspondencia en cuanto a representación de código y diagramas UML permite 
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-The present graduate thesis is based on the creation of a web application in order to analyze projects in
-GitHub, giving values regarding the code quality of Python-UML. Thus, it could be possible to get a representative
-value of UML in Python. The results will be useful to know the use of UML in a given project.
-\newline
+This graduate thesis aims to create a web application to provide metrics regarding the correspondence of Python code with diagrams in UML. In this way, it is possible to obtain a UML representation value for Python projects. The results obtained could serve to know what is the use that is given to UML in a project.
 
-The web application is developed with HTML5, BootStrap and CSS3 on the client side and with Django, Ctags and Python
-on the server side.
-\newline
+The web application has been developed with HTML5, BootStrap and CSS3 technologies on the client side, and with Django, Ctags and Python technologies on the server side. At present it is oriented to the analysis of projects in GitHub, but its use can be generalized to any other platform.
 
-It arises the necessity of this web application due to a first analysis carried on GitHub repositories,
-in which a low percentage of identified UML files are obtained. In this way, the purpose of this application
-is to help to understand the use of UML in each project so as to comprehend the scarce use of UML in general.
+Correspondence in terms of code representation and UML diagrams allows us to better understand the use that developers make of modeling, being able to identify errors, behavior patterns, inconsistencies, etc. To show the convenience of the application that has been created in this TFG, it has been applied to 108 Python projects hosted in GitHub that contain UML diagrams.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -243,28 +236,27 @@ is to help to understand the use of UML in each project so as to comprehend the 
 \section{Motivación}
 \label{sec:motivacion}
 
-La motivación principal de este trabajo es ayudar a entender el porque del poco uso de UML en la actualidad. Aunque UML está considerado como el lenguaje de modelado estándar en el análisis y diseño de sistemas, desde hace varios años su uso ha ido decreciendo, de manera que surge la cuestión de porqué este decrecimiento. Se ha observado que menos del 1\% de todos los repositorios almacenados en GitHub tienen su correspondiente representación en diagramas UML~\cite{hebig2016quest}.
+UML es un lenguaje de modelado que se enseña en multitud de universidades del mundo. Y, sin embargo, pese a ser ampliamente conocido, y a que es ampliamente aceptado en la industria del software, se ha observado que menos del 1\% de todos los repositorios almacenados en GitHub tienen su correspondiente representación en diagramas UML~\cite{hebig2016quest}.
 
-Aunque no hay nada demostrado sobre ello, por experiencias de usuarios se establece que la creación de diagramas es útil para dar soporte a ideas y formas de manera rápida y sencilla, y esto no lo cumple UML ya que con su desarrollo se ha ido aumentando su complejidad lo que conlleva más dificultad a la hora de generar diagramas. Otro motivo que se le da es la aparición de metodologías ágiles, que están en constante cambio y crear representaciones de UML sobre estos proyectos, sería un \emph{handicap} más que una ayuda.
+Surge así el debate de por qué UML no es aceptado en entornos donde sería de gran ayuda. Uno de los problemas a los que se enfrenta UML es que, aún siendo de amplia difusión, es difícil encontrar ejemplos de proyectos reales donde se pueda ver su uso. Por tanto, en las universidades se enseña UML de manera muy teórica, limitándose la parte práctica a casos muy pequeños, podríamos decir \emph{de laboratorio}, muchas veces ajenos a la realidad de un proyecto software. 
 
-Como no hay nada demostrado, para ayudar a resolver esta cuestión de manera objetiva, surge la necesidad de comprobar cómo es el uso que se le da a UML en los proyectos actuales para poder extrapolar a la cuestión principal.
+Para solucionar este problema, sería deseable contar con proyectos reales donde tuviéramos además su correspondiente diagrama UML. Esto serviría, además, para comprobar cómo se está modelando en proyectos reales, ya que en muchas ocasiones los diagramas que se utilizan en un entorno de desarrollo no contienen todos los detalles de implementación, sino que son una abstracción.
 
 Por ello, surge la idea de este trabajo: una herramienta a la que se le indica la dirección URL de un proyecto en GitHub, y realice un análisis para poder evaluar la correspondencia en cuanto a código Python y su representación en diagramas de UML.
 
-Se pretende dar apoyo al estudio realizado por la URJC, la Universidad de Gotemburgo y Chalmers University (Suecia) sobre el uso de UML, el cual tiene como pretexto que un proyecto que tiene una representación en diagramas de UML es un buen proyecto. Por lo tanto, los resultados obtenidos con nuestra herramienta servirán pueden ser asociados a calidad, es decir, un proyecto el cuál obtenga un porcentaje alto de representación en diagramas de UML será un proyecto de calidad.
+Se pretende dar apoyo al estudio realizado por la URJC, la Universidad de Gotemburgo y Chalmers University (Suecia) sobre el uso de UML, que tiene como objetivo analizar y fomentar el uso de UML en entornos de software libre. La asunción que hay detrás de estos esfuerzos es que el modelado permite crear mejores proyectos de software, ya que mejora la arquitectura del software, la comunicación entre el equipo de desarrollo y la documentación del proyecto. Por lo tanto, los resultados obtenidos con nuestra herramienta podrían ser asociados a la calidad del proyecto software, es decir, un proyecto que obtenga un porcentaje alto de representación en diagramas de UML tiene muchas posibilidades de ser a su vez un proyecto de calidad.
 
 \section{Contexto}
 \label{sec:contexto}
 
-Actualmente, se han realizado estudios por las Universidades de Leiden (Países Bajos) y Universidad de Gotemburgo - Chalmers University, esta última en colaboración con la URJC, sobre el uso que se le da a UML en cuanto a sus representaciones. Estas investigaciones van dirigidas al estudio de modelización en proyectos de software libre~\cite{hebig2016quest}, la relación entre anti-patrones de diseño en diagramas UML y código fuente~\cite{karasneh2016studying}, el nivel de detalle que han de tener los diagramas UML para facilitar la mantenibilida del código fuente~\cite{fernandez2016does}, o el uso de estos diagramas con fines docentes~\cite{karasneh2015using}.
+Actualmente, se han realizado varios estudios por las Universidades de Leiden (Países Bajos) y Universidad de Gotemburgo - Chalmers University, esta última en colaboración con la URJC, sobre el uso que se le da a UML en cuanto a sus representaciones. Estas investigaciones van dirigidas al estudio de modelización en proyectos de software libre~\cite{hebig2016quest}, la relación entre anti-patrones de diseño en diagramas UML y código fuente~\cite{karasneh2016studying}, el nivel de detalle que han de tener los diagramas UML para facilitar la mantenibilida del código fuente~\cite{fernandez2016does}, o el uso de estos diagramas con fines docentes~\cite{karasneh2015using}.
   
-
-Sin embargo, no existe una herramienta que automatice el trabajo de ligar diagramas de clase con código fuente, manera que se obtengan métricas que den apoyo a estos estudios. Por lo tanto, este trabajo presenta una herramienta piloto para facilitar la labor de los investigadores, al menos para proyectos que hacen uso del lenguaje de programación Python.
+Sin embargo, no existe una herramienta que automatice el trabajo de ligar diagramas de clase con código fuente, de manera que se puedan obtener métricas que den apoyo a estos estudios. Por lo tanto, este trabajo presenta una herramienta piloto para facilitar la labor de los investigadores, al menos para proyectos que hacen uso del lenguaje de programación Python.
 
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-
+La estructura de esta memoria es la siguiente:
 
 \begin{itemize}
   \item \textbf{Capítulo 1. Introducción.} Se explica el marco en el que se encuentra el proyecto, la motivación de la realización del mismo y el objetivo que se persigue con la creación del mismo.
@@ -314,7 +306,7 @@ El objetivo general se ha desgranado en una serie de objetivos específicos, que 
   con modelado UML. En esta tarea he podido contar con la colaboración de la Universidad de Gotemburgo, ya que ha verificado que efectivamente los proyectos que se van a analizar contienen diagramas de clases en UML.
   \item Extraer los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
   están representadas.
-  \item Optimizar código para los proyectos disponibles, tras realizar pruebas de test con  ellos.
+  \item Optimizar código para los proyectos disponibles, tras realizar pruebas con ellos.
   \item Desarrollar una aplicación web para mostrar los resultados y poder usar la aplicación en futuros proyectos
   de manera rápida y sencilla.
 
@@ -325,6 +317,8 @@ El objetivo general se ha desgranado en una serie de objetivos específicos, que 
 \label{sec:planificacion-temporal}
 
 La planificación temporal ha consistido en los siguientes pasos:
+
+FIXME: yo añadiría fechas.
 
 \begin{enumerate}
   \item Reunión con el tutor dónde me explica su idea del tema del proyecto y el objetivo que se persigue.
@@ -402,9 +396,9 @@ Debido al desarrollo de este trabajo, haremos especial hincapié en los diagramas
 \label{subsec:diagrama-de-clases}
 Tal como hemos visto anteriormente, los diagramas de clases describen la estructura del programa de manera estática
 mostrando las clases con sus atributos y sus interacciones tales como herencias, asociaciones, etc.
-Es la estructura más común representada en UML, siendo utilizados
+Los diagramas de clases son la estructura más comúnmente representada en UML, siendo utilizados
 tanto como para análisis como para diseño de sistemas o software en general.
-El proceso para la definición de un diagrama de clases es el siguiente:
+El proceso para la definición de un diagrama de clases es el que se muestra en la Figura~\ref{fig:construml}.
 
 \begin{figure}[htb]
   \centering
@@ -418,7 +412,7 @@ Las clases en UML son representadas como un rectángulo dividido en nombre de la 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=2cm, keepaspectratio]{img/clase1}
-  \caption{Representación de clase}
+  \caption{Representación de clase. FIXME: no se referencia ni se explica esta figura en el texto principal}
   \label{fig:diagrama-de-clases}
 \end{figure}
 
@@ -428,11 +422,12 @@ Las clases en UML son representadas como un rectángulo dividido en nombre de la 
   \item Métodos: es la forma en la que el objeto interactúa con el entorno. Pueden ser \emph{public} representado con cuadro rosa, \emph{private} representado con un cuadro rosa y un candado o \emph{protected} representado con un cuadro rosa y una llave.
 \end{itemize}
 En cuanto a las relaciones entre clases, se representa con flechas y según sea el estilo de la flecha, representa
-una relación u otra. En la figura \ref{fig:flechasrelacion} podemos observar los distintos tipos.
+una relación u otra. En la Figura~\ref{fig:flechasrelacion} podemos observar los distintos tipos que existen y que son:
+
 \begin{itemize}
   \item Herencia: indica que una subclase, incluye los métodos y atributos de la clase superior.
   \item Agregación: para componer objetos complejos en los que no es suficiente con los datos básicos.
-  \item Asociación: relación de objetos que colaboran entre si.
+  \item Asociación: relación de objetos que colaboran entre sí.
   \item Dependencia o Instanciación: sucede cuando la instancia de un objeto depende de otro objeto.
 \end{itemize}
 
@@ -445,7 +440,7 @@ una relación u otra. En la figura \ref{fig:flechasrelacion} podemos observar los
 
 \subsection{¿Cómo crear un diagrama de clases?}
 \label{subsec:creardiagrama}
-Los archivos de UML se suelen presentar en formato imagen o con la extensión xmi. En la figura \ref{fig:ejemplouml} podemos ver un ejemplo sencillo de un diagrama UML presentado en formato imagen y en la lista \ref{lst:ejemploxmi} podemos ver el formato que se presenta en los archivos xmi, para generar los diagramas.
+Los archivos de UML se suelen presentar en formato imagen o con la extensión xmi. En la Figura~\ref{fig:ejemplouml} podemos ver un ejemplo sencillo de un diagrama UML presentado en formato imagen y en el listado~\ref{lst:ejemploxmi} podemos ver el formato que se presenta en los archivos xmi, para generar los diagramas.
 
 \begin{figure}[htb]
   \centering
@@ -454,7 +449,8 @@ Los archivos de UML se suelen presentar en formato imagen o con la extensión xmi
   \label{fig:ejemplouml}
 \end{figure}
 
-Para el caso de la figura \ref{fig:ejemplouml} se observa 3 clases, en las que \textit{Auto} y \textit{Camioneta} heredan de \textit{Vehículo}. Por explicar uno de ellos, nos centramos en la primera caja la cual se compone de:
+Para el caso de la Figura~\ref{fig:ejemplouml} se observa que hay tres clases, en las que \textit{Auto} y \textit{Camioneta} heredan de \textit{Vehículo}. Por explicar uno de ellos, nos centramos en la primera caja (clase) la cual se compone de:
+
 \begin{itemize}
   \item \textbf{Nombre de la clase:} Vehículo.
   \item \textbf{Atributos:} dueño, puertas y rueda. Estos atributos están acompañados de un icono de una llave con cuadro azul, esto significa que es \textit{Protected}, por lo tanto no es visible desde fuera de la clase pero podrá ser usado por métodos y por las subclases heredadas.
@@ -474,7 +470,7 @@ Las clases \textit{Auto} y \textit{Camioneta} tienen los atributos y métodos de 
 </UML:Class>
 \end{lstlisting}
 
-Para el caso de el listado \ref{lst:ejemploxmi} se observa como es escrito estos diagramas. Este código se ha obtenido de uno de los proyectos analizados, y se ha simplificado de manera que sea más fácil observar los elementos deseados:
+Para el caso de el Listado~\ref{lst:ejemploxmi}, se observa cómo se escriben estos diagramas. El código se ha obtenido a partir de uno de los proyectos analizados, y se ha simplificado, de manera que sea más fácil observar los elementos deseados:
 
 \begin{itemize}
    \item \textbf{Nombre de la clase:} Pokemon. El nombre de la clase lo podemos observar en la etiqueta UML:Class, indicado el nombre en el atributo \emph{name}.
@@ -495,7 +491,7 @@ de noticias de la World Company.
 
 Se aproxima al patrón de diseño MVC (Modelo-Vista-Controlador), en el cual se separa
 el acceso y definición de datos (Modelo), de la asignación de ruta lógica (Controlador) y
-de la interfaz de usuario (Vista). En la figura \ref{fig:esquemadjango} podemos observar el esquema de funcionamiento:
+de la interfaz de usuario (Vista). En la Figura~\ref{fig:esquemadjango} podemos observar el esquema de funcionamiento.
 
 \begin{figure}[htb]
   \centering
@@ -504,20 +500,21 @@ de la interfaz de usuario (Vista). En la figura \ref{fig:esquemadjango} podemos 
   \label{fig:esquemadjango}
 \end{figure}
 
-El navegador realiza una petición al servidor, mediante la solicitud de una URL, la cual llega al controlador. Desde el controlador se consulta la vista asociada a esa URL, en el archivo urls.py, y cuando se encuentra se le llama a la vista en el archivo views.py, desde la vista se consulta la base de datos, el modelo, en caso necesario. Una vez generada la vista, se \emph{renderiza} y se envía al navegador.
+El navegador realiza una petición al servidor, mediante la solicitud de una URL, la cual llega al controlador. Desde el controlador se consulta la vista asociada a esa URL, en el archivo urls.py, y cuando se encuentra se  llama a la vista en el archivo views.py. Desde esa vista se consulta la base de datos, el \emph{modelo} en el \emph{argot} de django, si fuera necesario. Una vez generada la vista, se \emph{renderiza} la página web y se envía al navegador mediante el protocolo HTTP.
 
-Este patrón de diseño favorece a la modificación de cada archivo, de manera que en caso de
+Este patrón de diseño favorece la creación de páginas web dinámicas de manera sencilla e independiente, de manera que en caso de
 modificación de un componente, este no afecte a otro, es decir, tiene un acoplamiento débil.
+
+FIXME: Explicar para qué se ha utilizado Django en el proyecto
 
 \subsection{Exuberant Ctags}
 \label{subsec:ctags}
-\textbf{Exuberant ctags}\footnote{http://ctags.sourceforge.net} es una variante extendida de ctags, que es una herramienta de programación,
-la cual genera un archivo de etiquetas en texto plano a partir
-del código fuente de un programa~\cite{hiebert1999exuberant}. En el archivo de etiquetas, se indican funciones,
+\textbf{Exuberant ctags}\footnote{http://ctags.sourceforge.net} es una variante extendida de ctags, que es una herramienta de programación que genera un archivo de etiquetas en texto plano a partir
+del código fuente de un programa~\cite{hiebert1999exuberant}. En el archivo de etiquetas se indican funciones,
 variables, clases, macros... dependiendo del lenguaje de programación.
 Actualmente soporta 41 lenguajes de programación.
 
-Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores y utilidades.
+Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores de código o entornos de desarrollo integrados (IDEs por sus siglas in inglés) y otras utilidades.
 
 Por ejemplo, el resultado de análisis de un fichero con una clase llamada \textit{claseprueba} sería el siguiente:
 
@@ -526,8 +523,13 @@ Por ejemplo, el resultado de análisis de un fichero con una clase llamada \texti
     claseprueba	holamundo.py	/^class claseprueba():$/;''	c
     ...
   \end{lstlisting}
+  
+  FIXME: el ejemplo debería ser más ampli. No sólo una línea, que sean cuatro o cinco.
 
-Simplemente por el identificador del final, c, ya sabemos que es una clase, y el nombre lo podemos extraer del principio.
+Simplemente por el identificador del final, c, ya sabemos que es una clase, y el nombre lo podemos extraer del principio de la línea.
+
+FIXME: Explicar para qué se ha utilizado ctags en el proyecto
+
 
 \subsection{Python}
 \label{subsec:python}
@@ -543,28 +545,47 @@ por la legibilidad del código~\cite{van2003python,summerfield2010programming}. S
   \item Multiparadigma: permite distintas técnicas de programación (Orientación a objetos, funcional...)
 \end{enumerate}
 
+
+FIXME: Explicar para qué se ha utilizado Python en el proyecto
+
+
 \subsection{API de GitHub}
 \label{subsec:apigithub}
-\textbf{GitHub}\footnote{https://github.com} es una plataforma para almacenar repositorios, utilizando el control de versiones de Git, en la que destaca el desarrollo colaborativo.
-La API de GitHub ofrece distintas funcionalidades pero en nuestro caso vamos a usar la de repositorios:
+\textbf{GitHub}\footnote{https://github.com} es una plataforma para almacenar repositorios, utilizando el control de versiones de Git (ver seccion~\ref{subsec:git}), en la que destaca el desarrollo colaborativo. Ofrece, además de los repositorios git, funcionalidades como un sistema de gestión de erratas, wikis, una web pública y la posibilidad de que hacer ramificaciones (\emph{forks}) de un repositorio.
+
+La API de GitHub ofrece distintas funcionalidades para obtener datos sobre los más de 45 millones de repositorios alojados en GitHub. En nuestro caso vamos a usar la API que da información sobre los repositorios:
 
   \begin{lstlisting}
     GET https://api.github.com/repos/user/project
   \end{lstlisting}
 
-Si el proyecto existe, devuelve un objeto JSON y la cabecera HTTP con el código 200OK, sin embargo, si no existe el proyecto, devuelve un objeto JSON indicando un mensaje de error y la cabecera HTTP con el código 404.
+Así, para los proyectos que nos interesen, realizaremos una petición HTTP siguiendo el interfaz indicado en la API. Si el proyecto existe, recibiremos una respuesta HTTP con un \emph{200 OK} y un fichero/objeto JSON con los datos. Si no existe el proyecto, la cabecera HTTP será \emph{404 Not Found} y el objeto JSON contendrá un mensaje de error.
+
+FIXME: Contar que se ha utilizado GitHub también para alojar nuestra herramienta y en otro repositorio la memoria
+
+\subsection{git}
+\label{subsec:git}
+
+FIXME: Hablar de git
+
+FIXME: Explicar para qué se ha utilizado git en el proyecto
+
+
 
 \section{Tecnologías en el Cliente}
 \label{sec:seccion3}
 
 \subsection{HTML5}
 \label{subsec:html5}
-Quinta versión de \textbf{HTML} (HyperText Markup Language) lanzada en 2014~\cite{pilgrim2010html5,gauchat2012gran}. Se trata de un lenguaje de marcado para la realizar páginas web de manera
+
+HTML5 es la quinta versión de \textbf{HTML} (HyperText Markup Language), lanzada en 2014~\cite{pilgrim2010html5,gauchat2012gran}. Se trata de un lenguaje de marcado para la realizar páginas web de manera
 estructurada. Se incluyen nuevos elementos, atributos y comportamientos. También incluye más tecnologías
 que permiten a las páginas webs ser mas diversas y atractivas, soportado por la mayoría de navegadores.
 
 Cuenta con numerosas etiquetas para contenido multimedia, que lo hace interesante debido a
 que no es necesario el uso de Flash, ni de instalar nada de forma adicional. Además, y como gran novedad respecto a versiones anteriores del mismo estándar, provee con una serie de interfaces (APIs) para JavaScript, permitiendo la creación de aplicaciones web con HTML5 que compitan con aplicaciones de escritorio, con todas las consecuencias de desarrollo y de uso que esto acarrea.
+
+FIXME: Explicar para qué se ha utilizado HTML5 en el proyecto
 
 \subsection{CSS3}
 \label{subsec:CSS3}
@@ -579,6 +600,8 @@ elemento marcado, como tamaño, color, tipo, separación...
 CSS3 incorpora muchas novedades muy esperadas como esquinas redondeadas, sombras, animaciones, nuevos \emph{layouts}...
 Las partes experimentales son especiales para cada navegador, y no es recomendable su uso en producción.
 
+FIXME: Explicar para qué se ha utilizado CSS en el proyecto
+
 \subsection{JavaScript}
 \label{subsec:javascript}
 
@@ -586,6 +609,8 @@ JavaScript es un lenguaje de programación ligero e interpretado~\cite{flanagan20
 Surgió la necesidad, en los años 90, la creación de un nuevo lenguaje de programación debido a la creación de las aplicaciones webs. El problema que se planteaba con las aplicaciones webs en esa fecha era la baja velocidad que los usuarios tenían en internet, de manera que para poder ofrecer aplicaciones webs sin esperar mucho tiempo, surgió la necesidad de un lenguaje de programación que se ejecutase en el navegador del usuario, y no en un servidor como era usual.
 
 JavaScript se caracteriza por ser orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.
+
+FIXME: Explicar para qué se ha utilizado JavaScript en el proyecto
 
 
 \subsection{BootStrap}
@@ -603,6 +628,8 @@ Se puede hacer uso de varias formas, pero nosotros lo haremos a través de la CDN
 
 BootStrap facilita la creación de páginas webs sencillas con interfaces limpias para el usuario y de manera \emph{responsive}, es decir, que se adapta a todo tipo de dispositivos. Es compatible con la mayoría de navegadores actuales.
 
+FIXME: Explicar para qué se ha utilizado Bootstrap en el proyecto
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % DISEÑO E IMPLEMENTACIÓN %
@@ -610,14 +637,15 @@ BootStrap facilita la creación de páginas webs sencillas con interfaces limpias 
 
 \cleardoublepage
 \chapter{Diseño e implementación}
-A lo largo de este capítulo se desarrolla toda la arquitectura de la aplicación web,
+
+En este capítulo se muestra la arquitectura de la aplicación web,
 el acoplamiento entre los componentes y la especificación de cada parte de la aplicación.
 
 \section{Arquitectura general}
 \label{sec:arquitectura}
 
 La aplicación consta de parte servidora, que es donde se lleva a cabo toda la lógica, y
-la parte cliente, que es donde se muestran los resultados obtenidos. En la figura \ref{fig:arquitectura}
+la parte cliente, que es donde se muestran los resultados obtenidos. En la Figura~\ref{fig:arquitectura}
 podemos ver el esquema general, indicando para cada módulo las tecnologías que se usan.
 \begin{figure}[htb]
   \centering
@@ -635,7 +663,7 @@ disponible todo aquel que haya sido analizado anteriormente.
   \item \textbf{Analizar un proyecto dada su página web en GitHub.} En este caso, si el proyecto existe
   en GitHub, el resultado será de una nueva página con una tabla indicando los resultados que se obtienen
   para dicho proyecto. Los resultados que se muestran son el número de clases en UML, el número de clases en Python,
-  la intersección entre ambas y su porcentaje, y un desglose de la intersección. En la figura \ref{fig:flujoweb} podemos observar el diagrama de flujo de la web.
+  la intersección entre ambas y su porcentaje, y un desglose de la intersección. En la Figura~\ref{fig:flujoweb} podemos observar el diagrama de flujo de la web.
   \item \textbf{Consulta de todos los proyectos.} Cuando se selecciona esta opción, se mostrará una nueva página
   con un estilo similar a la tabla anterior, pero mostrando todos los proyectos analizados anteriormente y se encuentren
   en la base de datos de la aplicación.
@@ -655,7 +683,7 @@ Es necesario entender el funcionamiento de cada módulo, detallado a continuación
 \subsubsection{Frontal página web}
 \label{subsubsec:frontweb}
 El frontal de la página web, es la parte que ve el cliente. Se apuesta por un modelo sencillo
-y claro, que no permita dudas al uso, tal como observamos en la figura \ref{fig:mainpage}
+y claro, que no permita dudas al uso, tal como observamos en la Figura~\ref{fig:mainpage}
 
 \begin{figure}[htb]
   \centering
@@ -666,10 +694,10 @@ y claro, que no permita dudas al uso, tal como observamos en la figura \ref{fig:
 
 Se muestra un cuadro en el cual se debe ingresar la página web donde está alojado el repositorio de GitHub,
 un botón para proceder al envío de la URL y un enlace para consultar los proyectos disponibles.
-El método de envío del formulario es mediante POST, ya que permite que los datos enviados no sean visibles al usuario,
+El método de envío del formulario es mediante un método HTTP POST, ya que permite que los datos enviados no sean visibles al usuario,
 y no lleguen datos inesperados a nuestro servidor.
 
-Tras ingresar el enlace de un proyecto válido en GitHub, se muestran los resultados para dicho proyecto. La figura \ref{fig:resultsproject} muestra un ejemplo.
+Tras ingresar el enlace de un proyecto válido en GitHub, se muestran los resultados para dicho proyecto. La Figura~\ref{fig:resultsproject} muestra un ejemplo.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=10cm, keepaspectratio]{img/resultsproject}
@@ -677,7 +705,7 @@ Tras ingresar el enlace de un proyecto válido en GitHub, se muestran los resulta
   \label{fig:resultsproject}
 \end{figure}
 
-Otra opción de la página, es la consulta de los proyectos analizados hasta el momento. La vista de resultados se trata de una tabla, formada por todos los resultados de todos los proyectos, tal como muestra la figura \ref{fig:archive}
+Otra opción de la página, es la consulta de los proyectos analizados hasta el momento. La vista de resultados se trata de una tabla, formada por todos los resultados de todos los proyectos, tal como muestra la Figura~\ref{fig:archive}
 \begin{figure}[htb]
   \centering
   \includegraphics[width=10cm, keepaspectratio]{img/archive}
@@ -689,7 +717,7 @@ Otra opción de la página, es la consulta de los proyectos analizados hasta el mo
 \label{subsec:servidor}
 \subsubsection{Servidor Django}
 \label{subsubsec:server}
-El servidor Django necesita de distintos archivos para poder funcionar, a continuación se muestra la estructura
+El servidor Django necesita de distintos archivos para poder funcionar. A continuación se muestra la estructura
 completa:
 
 \begin{figure}[htb]
@@ -699,7 +727,7 @@ completa:
   \label{fig:estructura-server}
 \end{figure}
 
-Tal como se puede observar en la figura \ref{fig:estructura-server}, el directorio raíz
+Tal como se puede observar en la Figura~\ref{fig:estructura-server}, el directorio raíz
 está formado por:
 \begin{itemize}
   \item \textbf{db.sqlite3} que es el archivo de la base de datos.
@@ -716,7 +744,7 @@ está formado por:
     Python-UML.
     \item \textbf{models.py} en este archivo se encuentran los modelos (objetos) necesarios que hará uso nuestra aplicación.
     Para nuestro caso, se ha creado un único modelo llamado \emph{Project}, y con las propiedades necesarias para mostrar los
-    datos en nuestra aplicación. Podemos ver más detalle en la figura \ref{fig:project-model}
+    datos en nuestra aplicación. Podemos ver más detalle en la Figura~\ref{fig:project-model}
     \begin{figure}[htb]
       \centering
       \includegraphics[width=12cm, keepaspectratio]{img/project-model}
@@ -726,7 +754,7 @@ está formado por:
     \item \textbf{templates} es el directorio donde se almacenan las plantillas HTML de nuestra web.
     \item \textbf{urls.py} es el archivo denominado controlador. En este archivo es donde se indica la vista
     que se mostrará en el momento que se pida una URL. Django utiliza un conjunto de patrones que intentará
-    hacer coincidir la dirección URL recibida con la vista correcta. En la figura \ref{fig:controlador-urls} podemos observar las URLs.
+    hacer coincidir la dirección URL recibida con la vista correcta. En la Figura~\ref{fig:controlador-urls} podemos observar las URLs.
     \begin{figure}[htb]
       \centering
       \includegraphics[width=10cm, keepaspectratio]{img/controlador-urls}
@@ -734,8 +762,8 @@ está formado por:
       \label{fig:controlador-urls}
     \end{figure}
 
-    Tal como podemos ver, vamos a explicar el último caso. El primer operando sirve para especificar la URL
-    a la que queremos asociar, en este caso \textit{results}, sera asociada a la vista \emph{results} ubicada en views.results.
+    Vamos a proceder a explicar el último caso de la Figura~\ref{fig:controlador-urls}. El primer operando sirve para especificar la URL
+    a la que queremos asoViar, en este caso \textit{results}, sera asociada a la vista \emph{results} ubicada en views.results.
     \item \textbf{views.py} es el archivo donde se encuentran las vistas de nuestro servidor. Existe una vista por cada
     página disponible de nuestro servidor, por lo tanto en nuestro caso hay 3: para la página principal, para la página
     de archivo donde se encuentran todos los resultados de los proyectos y la página de resultados a partir de una URL
@@ -774,7 +802,7 @@ en GitHub como nombre del proyecto.
 
 \subsubsection{Analizador Python-UML}
 \label{subsubsec:analizadorpyuml}
-Este es el módulo principal en el que se basa esta aplicación web, dónde se encuentra toda la lógica. Se muestra el diagrama de flujo en la figura \ref{fig:flujoanalizador}.
+Este es el módulo principal en el que se basa esta aplicación web, dónde se encuentra toda la lógica. Se muestra el diagrama de flujo en la Figura~\ref{fig:flujoanalizador}.
 
 \begin{figure}[htb]
   \centering
@@ -852,10 +880,10 @@ El funcionamiento general de este programa consiste en:
   \item Una vez finalizado todo el análisis, se borra la carpeta del proyecto y finaliza el programa.
 \end{enumerate}
 
-Para realizar todo este proceso se utiliza 3 archivos, de manera que las funciones estén desacopladas
+Para realizar todo este proceso se utiliza tres archivos, de manera que las funciones estén desacopladas
 entre sí, y cualquier modificación de una función no afecte a otras.
 
-Para no perder los datos se van almacenando en un fichero .csv.
+Para no perder los datos se van almacenando en un fichero .csv. FIXME: explicar qué es eso de un CSV
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -865,9 +893,8 @@ Para no perder los datos se van almacenando en un fichero .csv.
 \cleardoublepage
 \chapter{Resultados}
 
-Para poder obtener resultados reales, se testea la aplicación con varios proyectos de GitHub.
-El profesor me facilitó una lista de proyectos en GitHub, que tienen archivos de UML y
-están verificados. Esta lista incluía proyectos con distintos tipos de lenguaje de programación,
+Para poder obtener resultados reales, se ha probado la aplicación con varios proyectos de GitHub.
+El tutor del proyecto me facilitó una lista de proyectos en GitHub que tienen archivos de UML (verificados por la Universidad de Gotemburgo). Esta lista incluía proyectos con distintos tipos de lenguaje de programación,
 y diferentes archivos UML, tal como la extensión .xmi, .uml y en formato imagen. El formato .uml
 no se considera estandarizado.
 Por lo tanto, del total de esta lista filtramos a aquellos archivos que sean de un proyecto
@@ -894,7 +921,7 @@ de ellos. Los gráficos que se muestran son:
 \subsection{Análisis total de proyectos}
 \label{subsec:analisistotalproyectos}
 Se representa gráficamente por cada proyecto las clases de UML y las clases de Python que tienen. De esta manera
-podemos ver a groso modo, que la mayoría de clases Python no está representada en UML, sin tener en cuenta
+podemos ver a groso modo, que la mayoría de clases Python no está representada en los diagramas UML, sin tener en cuenta
 los valores de los nombres de estas clases.
 
 \begin{figure}[htb]
@@ -904,15 +931,14 @@ los valores de los nombres de estas clases.
   \label{fig:totalproyectos}
 \end{figure}
 
-Tal como podemos ver en la figura \ref{fig:totalproyectos}, el número de clases existentes, para
+Tal como podemos ver en la Figura~\ref{fig:totalproyectos}, el número de clases existentes, para
 la mayoría de los proyectos, es superior en Python que en UML.
-Hay que tener en cuenta, que en esta gráfica solo se está teniendo en cuenta el número de clases de Python y el número
+Hay que tener en cuenta que en esta gráfica sólo se muestra el número de clases de Python y el número
 de clases de UML, que no siempre van a ser equivalentes.
 
 Por lo tanto, con esta simple representación, se puede extraer que la mayoría de clases de Python no tienen su equivalente
 en UML, o lo que es lo mismo, no están modeladas en UML.
 
-Para demostrar esto de manera numérica nos basamos en la siguiente figura:
 
 \begin{figure}[htb]
   \centering
@@ -921,7 +947,7 @@ Para demostrar esto de manera numérica nos basamos en la siguiente figura:
   \label{fig:tablaresultados}
 \end{figure}
 
-La figura \ref{fig:tablaresultados} muestra el total de los valores de los proyectos analizados:
+Para demostrar esto de manera numérica nos basamos en la Figura~\ref{fig:tablaresultados}, que muestra el total de los valores de los proyectos analizados:
 
 \begin{itemize}
   \item Suma total de clases de Python
@@ -931,13 +957,13 @@ La figura \ref{fig:tablaresultados} muestra el total de los valores de los proye
   \item Porcentaje de clases Python modeladas en UML, obtenida realizando alguna corrección
 \end{itemize}
 
-Se observa que sólo el 3,04\% del total de clases de Python están modeladas en UML. De las cuales,
-el 86,90\% de las clases, no se les ha aplicado ninguna corrección, por lo que se entiende que si no
+Se observa que sólo el 3,04\% del total de clases de Python están modeladas en UML. De las cuales
+al 86,90\% de las clases no se les ha aplicado ninguna corrección, por lo que se entiende que si no
 aparece modelada en UML, no es por un error ortográfico o similar.
 
 \subsection{Análisis de algunos proyectos}
 \label{subsec:analisisalgunosproyectos}
-Debido al gran número de proyectos representados en la figura \ref{fig:totalproyectos}, no se puede
+Debido al gran número de proyectos representados en la Figura~\ref{fig:totalproyectos}, no se puede
 apreciar con detalle, por lo que se crea otra figura con sólo 15 proyectos, de manera que se pueda
 explicar mejor la interpretación de la gráfica y añadiendo el componente de intersección.
 
@@ -949,7 +975,7 @@ explicar mejor la interpretación de la gráfica y añadiendo el componente de inte
 \end{figure}
 
 Por cada proyecto\footnote{El nombre de proyecto está identificado
-por el autor en GitHub y el nombre que le da al proyecto} de la figura \ref{fig:extracto} se observan 3 barras:
+por el autor en GitHub y el nombre que le da al proyecto} de la Figura~\ref{fig:extracto} se observan 3 barras:
 \begin{itemize}
   \item Barra azul que representa el número total de clases UML de dicho proyecto
   \item Barra naranja que representa el número total de clases Python de dicho proyecto
@@ -1072,7 +1098,7 @@ A lo largo del grado he tenido distintas asignaturas sobre programación, pero en
 debido a las tecnologías utilizadas hay que destacar:
 
 \begin{enumerate}
-  \item Protocolos para la transmisión de audio y vídeo, en la cual aprendí sobre el uso de Python y el uso de sus librerías.
+  \item Protocolos para la transmisión de audio y vídeo, en la cual aprendí sobre el uso de Python y el uso de sus bibliotecas.
   \item Laboratorios de tecnologías audiovisuales en la web, en la cual aprendí sobre el desarrollo web tanto del lado cliente
   como del lado servidor, con tecnologías usadas en el proyecto (Django, CSS, JavaScript, HTML5)
 \end{enumerate}
@@ -1139,9 +1165,9 @@ Al tratarse de una herramienta piloto, presenta varios trabajos a futuro, para p
 \label{sec:valoracion}
 
 Desde un primer momento, no sabía sobre que enfocar mi TFG, lo único que tenía claro era que me gustaba programar y
-quería hacer algo sobre el desarrollo de un programa, y que no solo estuviese formado por una parte Back, sino por la parte Front también.
+quería hacer algo sobre el desarrollo de un programa, y que no solo estuviese formado por una parte \emph{back-end}, sino por la parte \emph{front-end} también.
 
-Para poder desarrollar algo así, pregunte a los profesores de programación, hasta que mi tutor me comento la posibilidad de realizar
+Para poder desarrollar algo así, pregunté a los profesores que han dado clase y a los que les gusta la programación, hasta que mi tutor me comentó la posibilidad de realizar
 este trabajo. Aunque era un tema que no conocía, me llamó la atención el alcance que podría tener, y que realmente se le podría dar
 uso a esta aplicación, por lo que decidí elegir este tema.
 
