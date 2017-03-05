@@ -104,7 +104,7 @@ Tutor : Dr. Gregorio Robles
 
 \vspace{1cm}
 \large
-Herramiento para Evaluar la Correspondencia Entre Modelos y Código en Proyectos Python
+Herramienta para Evaluar la Correspondencia Entre Modelos y Código en Proyectos Python
 
 \vspace{1cm}
 \large
@@ -162,10 +162,10 @@ Con la entrega de este trabajo pongo fin a una etapa, a unos años que han tenido
 
 De estos años de carrera, quiero agradecer a mi familia por su comprensión a las horas que tenía que echar delante de un libro u ordenador, haciendo el mínimo ruido posible para no molestarme, y por sus pequeñas visitas para desconectar.
 Quiero agradecer a mis amigos de toda la vida, por sus mensajes de apoyo el primer día de universidad y por sus mensajes de felicitación en el último.
-También quiero agradecer a toda las personas que he conocido a lo largo de la carrera, desde la persona con la que me perdí en busca de nuestro primer aula el día de la presentación hasta con la que hable de que era nuestro último día de clase, sin olvidar a todos los demás que han estado entre medias, compartiendo horas de prácticas, trabajos, biblioteca, skype... Todos por el mismo objetivo.
+También quiero agradecer a toda las personas que he conocido a lo largo de la carrera, desde la persona con la que me perdí en busca de nuestro primer aula el día de la presentación hasta con la que hable de que era nuestro último día de clase, sin olvidar a todos los demás que han estado entre medias, compartiendo horas de prácticas, trabajos, biblioteca, Skype... Todos por el mismo objetivo.
 
-Respecto a mi TFG, quiero agradecer a todos los que me han ayudado directamente: con recomendaciones de cambios de palabra (tanto en inglés como en español), dándome una opinión general o simplemente, haciendome compañía.
-Y como no, a mi tutor Gregorio, por haberme dado la oportunidad de realizar este TFG y por haber estado tan atento contestando emails a horas inesperadas.
+Respecto a mi TFG, quiero agradecer a todos los que me han ayudado directamente: con recomendaciones de cambios de palabra (tanto en inglés como en español), dándome una opinión general o simplemente, haciéndome compañía.
+Y como no, a mi tutor Gregorio, por haberme dado la oportunidad de realizar este TFG y por haber estado tan atento contestando correos electrónicos a horas inesperadas.
 
 Muchas gracias a todos, que aunque no os nombre, todos sabéis por quien va cada línea. Gracias.
 
@@ -245,7 +245,7 @@ is to help to understand the use of UML in each project so as to comprehend the 
 
 La motivación principal de este trabajo es ayudar a entender el porque del poco uso de UML en la actualidad. Aunque UML está considerado como el lenguaje de modelado estándar en el análisis y diseño de sistemas, desde hace varios años su uso ha ido decreciendo, de manera que surge la cuestión de porqué este decrecimiento. Se ha observado que menos del 1\% de todos los repositorios almacenados en GitHub tienen su correspondiente representación en diagramas UML.
 
-Aunque no hay nada demostrado sobre ello, por experiencias de usuarios se establece que la creación de diagramas es útil para dar soporte a ideas y formas de manera rápida y sencilla, y esto no lo cumple UML ya que con su desarrollo se ha ido aumentando su complejidad lo que conlleva más dificultad a la hora de generar diagramas. Otro motivo que se le da es la aparición de metodologías ágiles, que están en constante cambio y crear representaciones de UML sobre estos proyectos, sería un handicap más que una ayuda.
+Aunque no hay nada demostrado sobre ello, por experiencias de usuarios se establece que la creación de diagramas es útil para dar soporte a ideas y formas de manera rápida y sencilla, y esto no lo cumple UML ya que con su desarrollo se ha ido aumentando su complejidad lo que conlleva más dificultad a la hora de generar diagramas. Otro motivo que se le da es la aparición de metodologías ágiles, que están en constante cambio y crear representaciones de UML sobre estos proyectos, sería un \emph{handicap} más que una ayuda.
 
 Como no hay nada demostrado, para ayudar a resolver esta cuestión de manera objetiva, surge la necesidad de comprobar cómo es el uso que se le da a UML en los proyectos actuales para poder extrapolar a la cuestión principal.
 
@@ -327,7 +327,7 @@ La planificación temporal ha consistido en:
     \item Extraer las clases de UML de archivos .xmi.
     \item Comparación de clases y dar resultados.
     \item Pruebas del programa con 10 proyectos elegidos al azar para optimizarlo.
-    \item Obtención de resultados para todos los proyectos disponibles. Se automatiza el proceso con script externo.
+    \item Obtención de resultados para todos los proyectos disponibles. Se automatiza el proceso con \emph{script} externo.
   \end{itemize}
   \item Desarrollo de la página web con Django, para facilitar el uso de la aplicación y mostrar los resultados de proyectos ya analizados.
   \begin{itemize}
@@ -408,8 +408,8 @@ Las clases en UML son representadas como un rectángulo dividido en nombre de la 
 
 \begin{itemize}
   \item Clases: encapsulan la información de un objeto. Pueden ser abstractas si no tienen instancias directas pero sus descendientes si las tienen, o concretas que son todas aquellas clases que pueden ser instanciables.
-  \item Atributos: se definen como las características que presenta una clase. Pueden ser public representado con cuadro azul, private representado con un cuadro azul y un candado o protected representado con un cuadro azul y una llave.
-  \item Métodos: es la forma en la que el objeto interactúa con el entorno. Pueden ser public representado con cuadro rosa, private representado con un cuadro rosa y un candado o protected representado con un cuadro rosa y una llave.
+  \item Atributos: se definen como las características que presenta una clase. Pueden ser \emph{public} representado con cuadro azul, \emph{private} representado con un cuadro azul y un candado o \emph{protected} representado con un cuadro azul y una llave.
+  \item Métodos: es la forma en la que el objeto interactúa con el entorno. Pueden ser \emph{public} representado con cuadro rosa, \emph{private} representado con un cuadro rosa y un candado o \emph{protected} representado con un cuadro rosa y una llave.
 \end{itemize}
 En cuanto a las relaciones entre clases, se representa con flechas y según sea el estilo de la flecha, representa
 una relación u otra. En la figura \ref{fig:flechasrelacion} podemos observar los distintos tipos.
@@ -461,9 +461,9 @@ Las clases \textit{Auto} y \textit{Camioneta} tienen los atributos y métodos de 
 Para el caso de el listado \ref{lst:ejemploxmi} se observa como es escrito estos diagramas. Este código se ha obtenido de uno de los proyectos analizados, y se ha simplificado de manera que sea más fácil observar los elementos deseados:
 
 \begin{itemize}
-   \item \textbf{Nombre de la clase:} Pokemon. El nombre de la clase lo podemos observar en la etiqueta UML:Class, indicado el nombre en el atributo name.
-   \item \textbf{Atributos:} level. Para este caso, tenemos que buscar las etiquetas UML:Attribute que estén encerradas dentro de la etiqueta UML:Class, indicado el nombre en el atributo name. También podemos observar que es un atributo privado, tal como indica en \textit{visibility=private}.
-   \item \textbf{Métodos:} print\_ataques\_pokemon. Para este caso, tenemos que buscar las etiquetas UML:Operation que estén encerradas dentro de la etiqueta UML:Class, indicado el nombre en el atributo name. También podemos observar que es un método público, tal como indica en \textit{visibility=public}.
+   \item \textbf{Nombre de la clase:} Pokemon. El nombre de la clase lo podemos observar en la etiqueta UML:Class, indicado el nombre en el atributo \emph{name}.
+   \item \textbf{Atributos:} \emph{level}. Para este caso, tenemos que buscar las etiquetas UML:Attribute que estén encerradas dentro de la etiqueta UML:Class, indicado el nombre en el atributo \emph{name}. También podemos observar que es un atributo privado, tal como indica en \textit{visibility=private}.
+   \item \textbf{Métodos:} print\_ataques\_pokemon. Para este caso, tenemos que buscar las etiquetas UML:Operation que estén encerradas dentro de la etiqueta UML:Class, indicado el nombre en el atributo \emph{name}. También podemos observar que es un método público, tal como indica en \textit{visibility=public}.
 \end{itemize}
 
 Para poder generar los diagramas se usan programas externos, que a partir de diseños gráficos de diagramas, se realiza ingeniería inversa para poder exportar en archivos .xmi. Hay una gran lista de programas, tanto gratuitos como de pago, que facilitan esta labor.
@@ -488,7 +488,7 @@ de la interfaz de usuario (Vista). En la figura \ref{fig:esquemadjango} podemos 
   \label{fig:esquemadjango}
 \end{figure}
 
-El navegador realiza una petición al servidor, mediante la solicitud de una URL, la cual llega al controlador. Desde el controlador se consulta la vista asociada a esa URL, en el archivo urls.py, y cuando se encuentra se le llama a la vista en el archivo views.py, desde la vista se consulta la base de datos, el modelo, en caso necesario. Una vez generada la vista, se renderiza y se envía al navegador.
+El navegador realiza una petición al servidor, mediante la solicitud de una URL, la cual llega al controlador. Desde el controlador se consulta la vista asociada a esa URL, en el archivo urls.py, y cuando se encuentra se le llama a la vista en el archivo views.py, desde la vista se consulta la base de datos, el modelo, en caso necesario. Una vez generada la vista, se \emph{renderiza} y se envía al navegador.
 
 Este patrón de diseño favorece a la modificación de cada archivo, de manera que en caso de
 modificación de un componente, este no afecte a otro, es decir, tiene un acoplamiento débil.
@@ -559,7 +559,7 @@ El W3C apostó por el desarrollo y estandarización de CSS y en 1996 publicó la pr
 Con HTML se marcan los contenidos de la página, y se utiliza CSS para definir el aspecto de cada
 elemento marcado, como tamaño, color, tipo, separación...
 
-CSS3 incorpora muchas novedades muy esperadas como esquinas redondeadas, sombras, animaciones, nuevos layouts...
+CSS3 incorpora muchas novedades muy esperadas como esquinas redondeadas, sombras, animaciones, nuevos \emph{layouts}...
 Las partes experimentales son especiales para cada navegador, y no es recomendable su uso en producción.
 
 \subsection{JavaScript}
@@ -583,7 +583,7 @@ Se puede hacer uso de varias formas, pero nosotros lo haremos a través de la CDN
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
   \end{lstlisting}
 
-BootStrap facilita la creación de páginas webs sencillas con interfaces limpias para el usuario y de manera responsive, es decir, que se adapta a todo tipo de dispositivos. Es compatible con la mayoría de navegadores actuales.
+BootStrap facilita la creación de páginas webs sencillas con interfaces limpias para el usuario y de manera \emph{responsive}, es decir, que se adapta a todo tipo de dispositivos. Es compatible con la mayoría de navegadores actuales.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -651,7 +651,7 @@ un botón para proceder al envío de la URL y un enlace para consultar los proyect
 El método de envío del formulario es mediante POST, ya que permite que los datos enviados no sean visibles al usuario,
 y no lleguen datos inesperados a nuestro servidor.
 
-Tras ingresar el link de un proyecto válido en GitHub, se muestran los resultados para dicho proyecto. La figura \ref{fig:resultsproject} muestra un ejemplo.
+Tras ingresar el enlace de un proyecto válido en GitHub, se muestran los resultados para dicho proyecto. La figura \ref{fig:resultsproject} muestra un ejemplo.
 \begin{figure}[htb]
   \centering
   \includegraphics[width=10cm, keepaspectratio]{img/resultsproject}
@@ -717,7 +717,7 @@ está formado por:
     \end{figure}
 
     Tal como podemos ver, vamos a explicar el último caso. El primer operando sirve para especificar la URL
-    a la que queremos asociar, en este caso \textit{results}, sera asociada a la vista results ubicada en views.results.
+    a la que queremos asociar, en este caso \textit{results}, sera asociada a la vista \emph{results} ubicada en views.results.
     \item \textbf{views.py} es el archivo donde se encuentran las vistas de nuestro servidor. Existe una vista por cada
     página disponible de nuestro servidor, por lo tanto en nuestro caso hay 3: para la página principal, para la página
     de archivo donde se encuentran todos los resultados de los proyectos y la página de resultados a partir de una URL
@@ -779,7 +779,7 @@ El funcionamiento general de este programa consiste en:
     caso, solo nos fijaremos aquellas que sean marcadas como clases, indicadas con
     una \textbf{c} al final, y nos quedamos con el nombre de la clase.
 
-    Todas las clases de todos los archivos .py seran añadidas a un archivo.
+    Todas las clases de todos los archivos .py serán añadidas a un archivo.
 
     Una vez finalizado este proceso,
     se realiza un proceso de depuración en el que se eliminan duplicados.
@@ -1159,7 +1159,7 @@ Una vez instalado todo lo necesario, desde la carpeta donde se encuentra el proy
 \begin{lstlisting}
   ~$ python manage.py runserver
 \end{lstlisting}
-De esta manera nuestro servidor ya empieza a escuchar en el puerto 8000 (default). Para ir a la página principal del proyecto hay que acceder, desde el navegador, a 127.0.0.1:8000.
+De esta manera nuestro servidor ya empieza a escuchar en el puerto 8000 (\emph{default}). Para ir a la página principal del proyecto hay que acceder, desde el navegador, a 127.0.0.1:8000.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
