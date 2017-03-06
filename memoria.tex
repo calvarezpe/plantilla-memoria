@@ -238,7 +238,7 @@ Correspondence in terms of code representation and UML diagrams allows us to bet
 
 UML es un lenguaje de modelado que se enseña en multitud de universidades del mundo. Y, sin embargo, pese a ser ampliamente conocido, y a que es ampliamente aceptado en la industria del software, se ha observado que menos del 1\% de todos los repositorios almacenados en GitHub tienen su correspondiente representación en diagramas UML~\cite{hebig2016quest}.
 
-Surge así el debate de por qué UML no es aceptado en entornos donde sería de gran ayuda. Uno de los problemas a los que se enfrenta UML es que, aún siendo de amplia difusión, es difícil encontrar ejemplos de proyectos reales donde se pueda ver su uso. Por tanto, en las universidades se enseña UML de manera muy teórica, limitándose la parte práctica a casos muy pequeños, podríamos decir \emph{de laboratorio}, muchas veces ajenos a la realidad de un proyecto software. 
+Surge así el debate de por qué UML no es aceptado en entornos donde sería de gran ayuda. Uno de los problemas a los que se enfrenta UML es que, aún siendo de amplia difusión, es difícil encontrar ejemplos de proyectos reales donde se pueda ver su uso. Por tanto, en las universidades se enseña UML de manera muy teórica, limitándose la parte práctica a casos muy pequeños, podríamos decir \emph{de laboratorio}, muchas veces ajenos a la realidad de un proyecto software.
 
 Para solucionar este problema, sería deseable contar con proyectos reales donde tuviéramos además su correspondiente diagrama UML. Esto serviría, además, para comprobar cómo se está modelando en proyectos reales, ya que en muchas ocasiones los diagramas que se utilizan en un entorno de desarrollo no contienen todos los detalles de implementación, sino que son una abstracción.
 
@@ -250,7 +250,7 @@ Se pretende dar apoyo al estudio realizado por la URJC, la Universidad de Gotemb
 \label{sec:contexto}
 
 Actualmente, se han realizado varios estudios por las Universidades de Leiden (Países Bajos) y Universidad de Gotemburgo - Chalmers University, esta última en colaboración con la URJC, sobre el uso que se le da a UML en cuanto a sus representaciones. Estas investigaciones van dirigidas al estudio de modelización en proyectos de software libre~\cite{hebig2016quest}, la relación entre anti-patrones de diseño en diagramas UML y código fuente~\cite{karasneh2016studying}, el nivel de detalle que han de tener los diagramas UML para facilitar la mantenibilida del código fuente~\cite{fernandez2016does}, o el uso de estos diagramas con fines docentes~\cite{karasneh2015using}.
-  
+
 Sin embargo, no existe una herramienta que automatice el trabajo de ligar diagramas de clase con código fuente, de manera que se puedan obtener métricas que den apoyo a estos estudios. Por lo tanto, este trabajo presenta una herramienta piloto para facilitar la labor de los investigadores, al menos para proyectos que hacen uso del lenguaje de programación Python.
 
 \section{Estructura de la memoria}
@@ -318,7 +318,6 @@ El objetivo general se ha desgranado en una serie de objetivos específicos, que 
 
 La planificación temporal ha consistido en los siguientes pasos:
 
-FIXME: yo añadiría fechas.
 
 \begin{enumerate}
   \item Reunión con el tutor dónde me explica su idea del tema del proyecto y el objetivo que se persigue.
@@ -407,12 +406,12 @@ El proceso para la definición de un diagrama de clases es el que se muestra en l
   \label{fig:construml}
 \end{figure}
 
-Las clases en UML son representadas como un rectángulo dividido en nombre de la clase, atributos y operaciones o métodos.
+Las clases en UML son representadas como un rectángulo dividido en nombre de la clase, atributos y operaciones o métodos, tal como podemos ver en la Figura \ref{fig:diagrama-de-clases}.
 
 \begin{figure}[htb]
   \centering
   \includegraphics[width=2cm, keepaspectratio]{img/clase1}
-  \caption{Representación de clase. FIXME: no se referencia ni se explica esta figura en el texto principal}
+  \caption{Representación de clase.}
   \label{fig:diagrama-de-clases}
 \end{figure}
 
@@ -505,7 +504,8 @@ El navegador realiza una petición al servidor, mediante la solicitud de una URL,
 Este patrón de diseño favorece la creación de páginas web dinámicas de manera sencilla e independiente, de manera que en caso de
 modificación de un componente, este no afecte a otro, es decir, tiene un acoplamiento débil.
 
-FIXME: Explicar para qué se ha utilizado Django en el proyecto
+Debido a las cualidades que tiene Django, se decide utilizar para la creación de la parte Front del proyecto, la página web de presentación de resultados. La justificación de la elección de Django es porque tenemos que dar resultados de distintos proyectos, tarea que facilita Django con el MVC, al cual se le pasan los datos obtenidos en la consulta de la BBDD a la plantilla, y Django ya crea el HTML resultante.
+Otra causa de la elección de Django para este proyecto, es porque el desarrollo de la herramienta ha sido en Python, y Django es un framework en Python.
 
 \subsection{Exuberant Ctags}
 \label{subsec:ctags}
@@ -516,19 +516,31 @@ Actualmente soporta 41 lenguajes de programación.
 
 Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores de código o entornos de desarrollo integrados (IDEs por sus siglas in inglés) y otras utilidades.
 
-Por ejemplo, el resultado de análisis de un fichero con una clase llamada \textit{claseprueba} sería el siguiente:
+A continuación se muestra el ejemplo de fichero ctags obtenido en un proyecto analizado:
 
-  \begin{lstlisting}
-    ...
-    claseprueba	holamundo.py	/^class claseprueba():$/;''	c
-    ...
-  \end{lstlisting}
-  
-  FIXME: el ejemplo debería ser más ampli. No sólo una línea, que sean cuatro o cinco.
+\begin{lstlisting}[basicstyle=\small, breaklines=true]
+  !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+  !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+  !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+  !_TAG_PROGRAM_NAME	Exuberant Ctags	//
+  !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+  !_TAG_PROGRAM_VERSION	5.8	//
+  GamePresentation	GamePresentation.py	/^class GamePresentation:$/;"	c
+  display	GamePresentation.py	/^    def display(self, message):$/;"	m	class:GamePresentation
+  get_choice	GamePresentation.py	/^    def get_choice(self, options):$/;"	m	class:GamePresentation
+\end{lstlisting}
 
-Simplemente por el identificador del final, c, ya sabemos que es una clase, y el nombre lo podemos extraer del principio de la línea.
+\begin{itemize}
+  \item Las seis primeras líneas corresponden a información generada por Exuberant Ctags.
+  \item las tres últimas corresponden al análisis realizado por Exuberant Ctags, explicado línea a línea:
+  \begin{enumerate}
+    \item Por el identificador del final, c, sabemos que es una clase, y el nombre lo podemos extraer del principio de la línea.
+    \item Por el identificador del final, m, sabemos que es un método correspondiente a la clase GamePresentation, llamado display tal como podemos ver al principio de la línea.
+    \item Por el identificador del final, m, sabemos que es un método correspondiente a la clase GamePresentation, llamado get\_choice tal como podemos ver al principio de la línea.
+  \end{enumerate}
+\end{itemize}
 
-FIXME: Explicar para qué se ha utilizado ctags en el proyecto
+Se ha utilizado Exuberant Ctags para poder analizar los archivos de código fuente en lenguaje Python, mediante este análisis se extraían los nombres de las clases de todos los ficheros en lenguaje Python disponibles.
 
 
 \subsection{Python}
@@ -545,9 +557,7 @@ por la legibilidad del código~\cite{van2003python,summerfield2010programming}. S
   \item Multiparadigma: permite distintas técnicas de programación (Orientación a objetos, funcional...)
 \end{enumerate}
 
-
-FIXME: Explicar para qué se ha utilizado Python en el proyecto
-
+Se decide usar este lenguaje de programación debido a las características que presenta que es de alto nivel y porque es el lenguaje que más me ha gustado en los años de universidad. Con Python se ha desarrollado todo el proyecto, tanto el servidor con Django como toda la lógica de la herramienta para analizar el código fuente y su modelado UML.
 
 \subsection{API de GitHub}
 \label{subsec:apigithub}
@@ -561,16 +571,27 @@ La API de GitHub ofrece distintas funcionalidades para obtener datos sobre los m
 
 Así, para los proyectos que nos interesen, realizaremos una petición HTTP siguiendo el interfaz indicado en la API. Si el proyecto existe, recibiremos una respuesta HTTP con un \emph{200 OK} y un fichero/objeto JSON con los datos. Si no existe el proyecto, la cabecera HTTP será \emph{404 Not Found} y el objeto JSON contendrá un mensaje de error.
 
-FIXME: Contar que se ha utilizado GitHub también para alojar nuestra herramienta y en otro repositorio la memoria
+Otro uso que se le ha dado a GitHub, ha sido para almacenar el proyecto\footnote{https://github.com/calvarezpe/WebPage-UML} lo que permite hacer pública la herramienta desarrollada, permite colaboración de otros programadores y mantener un control de versiones, estando disponible la versión que más nos interese. En otro repositorio se ha almacenado la memoria del proyecto, con el principal objetivo del control de versiones.
 
-\subsection{git}
+\subsection{Git}
 \label{subsec:git}
 
-FIXME: Hablar de git
+Git es un sistema de control de versiones gratuito y de código abierto diseñado para gestionar los diversos cambios que se realizan a lo largo del desarrollo de un proyecto. De esta manera, se puede restaurar a versiones anteriores en caso de que se produzcan fallos o por alguna razón se quiera recuperar el estado anterior.
+Permite la realización de un trabajo en equipo de manera eficiente y rápida. Destaca por que los cambios se importan como ramas diferentes a la principal, y pueden ser fusionadas a esta en el momento que se decida.
 
-FIXME: Explicar para qué se ha utilizado git en el proyecto
+A continuación se muestran comandos básicos de \textit{supervivencia}~\cite{sanchez2016git}.
 
+\begin{lstlisting}[breaklines=true, basicstyle=\small]
+  git init ## Para crear un nuevo repositorio Git
+  git clone <<url_repo>> ## Para crear una copia local de un repositorio
+  git add <<filename>> ## Para añadir un archivo al repositorio Git
+  git commit -m "message" ## Para registrar los cambios
+  git push ## Para enviar los cambios al servidor
+  git pull ## Para actualizar el repositorio local
+  git status ## Información de estado de los ficheros del repositorio
+\end{lstlisting}
 
+Se decide usar Git porque es la herramienta de control de versiones más conocida y usada, lo cual nos interesa ya que nuestra herramienta desarrollada se trata de un piloto en desarrollo, y todas las aportaciones realizadas serán de utilidad para ello. También se decide usar Git ya que es la herramienta de control de versiones utilizada en la universidad.
 
 \section{Tecnologías en el Cliente}
 \label{sec:seccion3}
@@ -585,7 +606,7 @@ que permiten a las páginas webs ser mas diversas y atractivas, soportado por la 
 Cuenta con numerosas etiquetas para contenido multimedia, que lo hace interesante debido a
 que no es necesario el uso de Flash, ni de instalar nada de forma adicional. Además, y como gran novedad respecto a versiones anteriores del mismo estándar, provee con una serie de interfaces (APIs) para JavaScript, permitiendo la creación de aplicaciones web con HTML5 que compitan con aplicaciones de escritorio, con todas las consecuencias de desarrollo y de uso que esto acarrea.
 
-FIXME: Explicar para qué se ha utilizado HTML5 en el proyecto
+En este proyecto se ha utilizado HTML5 para las páginas webs presentadas al usuario a través del sistema de plantillas de Django, es decir, las plantillas utilizadas en Django son en HTML5. Tiene la ventaja que presenta una velocidad de carga rápida, lo cual nos beneficia, ya que el análisis del proyecto puede llevar más tiempo y la carga de la página no nos penaliza en tiempo.
 
 \subsection{CSS3}
 \label{subsec:CSS3}
@@ -600,8 +621,7 @@ elemento marcado, como tamaño, color, tipo, separación...
 CSS3 incorpora muchas novedades muy esperadas como esquinas redondeadas, sombras, animaciones, nuevos \emph{layouts}...
 Las partes experimentales son especiales para cada navegador, y no es recomendable su uso en producción.
 
-FIXME: Explicar para qué se ha utilizado CSS en el proyecto
-
+Se utiliza CSS porque nos permite tener separado los detalles de como mostrarlo a la información del contenido a mostrar. Se utiliza en el diseño de la página web mostrada al usuario, para que esta tenga un buen aspecto y sea intuitiva.
 \subsection{JavaScript}
 \label{subsec:javascript}
 
@@ -610,8 +630,7 @@ Surgió la necesidad, en los años 90, la creación de un nuevo lenguaje de program
 
 JavaScript se caracteriza por ser orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico.
 
-FIXME: Explicar para qué se ha utilizado JavaScript en el proyecto
-
+En nuestra página web, se utiliza JavaScript para comprobar la URL que introduce el usuario, de manera que no tiene que esperar a que el servidor le de una respuesta si la URL está bien estructurada o no, es decir, si presenta el formato general de una URL.
 
 \subsection{BootStrap}
 \label{subsec:bootstrap}
@@ -628,7 +647,16 @@ Se puede hacer uso de varias formas, pero nosotros lo haremos a través de la CDN
 
 BootStrap facilita la creación de páginas webs sencillas con interfaces limpias para el usuario y de manera \emph{responsive}, es decir, que se adapta a todo tipo de dispositivos. Es compatible con la mayoría de navegadores actuales.
 
-FIXME: Explicar para qué se ha utilizado Bootstrap en el proyecto
+Se ha utilizado BootStrap en las tres vistas disponibles de la página web:
+\begin{itemize}
+  \item Página principal, en la cual se han utilizado el estilo de botón, el estilo de letra y el estilo de caja input.
+  \item Página para mostrar resultados (de uno o varios proyectos), en el cual se ha utilizado el estilo completo de tabla mediante el cual con una simple línea de código se obtiene una tabla responsive, la cual señala el elemento al pasar por encima el ratón, y muestra cada elemento de un color. La línea introducida ha sido la siguiente:
+  \begin{lstlisting}[basicstyle=\small, language=HTML, breaklines=true]
+    <table class="table table-striped table-bordered table-hover table-condensed">
+  \end{lstlisting}
+\end{itemize}
+
+En definitiva, se consiguen muy buenos resultados de manera muy sencilla.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -883,7 +911,7 @@ El funcionamiento general de este programa consiste en:
 Para realizar todo este proceso se utiliza tres archivos, de manera que las funciones estén desacopladas
 entre sí, y cualquier modificación de una función no afecte a otras.
 
-Para no perder los datos se van almacenando en un fichero .csv. FIXME: explicar qué es eso de un CSV
+Para no perder los datos se van almacenando en un fichero .csv\footnote{Un fichero csv es un documento de texto plano en el que se presentan resultados en forma de tabla, de manera que los valores de las columnas están separados por tablas y las filas de nuevos elementos por saltos de línea.}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
