@@ -249,7 +249,7 @@ Se pretende dar apoyo al estudio realizado por la URJC, la Universidad de Gotemb
 \section{Contexto}
 \label{sec:contexto}
 
-Actualmente, se han realizado varios estudios por las Universidades de Leiden (Países Bajos) y Universidad de Gotemburgo - Chalmers University, esta última en colaboración con la URJC, sobre el uso que se le da a UML en cuanto a sus representaciones. Estas investigaciones van dirigidas al estudio de modelización en proyectos de software libre~\cite{hebig2016quest}, la relación entre anti-patrones de diseño en diagramas UML y código fuente~\cite{karasneh2016studying}, el nivel de detalle que han de tener los diagramas UML para facilitar la mantenibilida del código fuente~\cite{fernandez2016does}, o el uso de estos diagramas con fines docentes~\cite{karasneh2015using}.
+Actualmente, se han realizado varios estudios por las Universidades de Leiden (Países Bajos) y Universidad de Gotemburgo - Chalmers University, esta última en colaboración con la URJC, sobre el uso que se le da a UML en cuanto a sus representaciones. Estas investigaciones van dirigidas al estudio de modelización en proyectos de software libre~\cite{hebig2016quest}, la relación entre anti-patrones de diseño en diagramas UML y código fuente~\cite{karasneh2016studying}, el nivel de detalle que han de tener los diagramas UML para facilitar la mantenibilidad del código fuente~\cite{fernandez2016does}, o el uso de estos diagramas con fines docentes~\cite{karasneh2015using}.
 
 Sin embargo, no existe una herramienta que automatice el trabajo de ligar diagramas de clase con código fuente, de manera que se puedan obtener métricas que den apoyo a estos estudios. Por lo tanto, este trabajo presenta una herramienta piloto para facilitar la labor de los investigadores, al menos para proyectos que hacen uso del lenguaje de programación Python.
 
@@ -499,12 +499,12 @@ de la interfaz de usuario (Vista). En la Figura~\ref{fig:esquemadjango} podemos 
   \label{fig:esquemadjango}
 \end{figure}
 
-El navegador realiza una petición al servidor, mediante la solicitud de una URL, la cual llega al controlador. Desde el controlador se consulta la vista asociada a esa URL, en el archivo urls.py, y cuando se encuentra se  llama a la vista en el archivo views.py. Desde esa vista se consulta la base de datos, el \emph{modelo} en el \emph{argot} de django, si fuera necesario. Una vez generada la vista, se \emph{renderiza} la página web y se envía al navegador mediante el protocolo HTTP.
+El navegador realiza una petición al servidor, mediante la solicitud de una URL, la cual llega al controlador. Desde el controlador se consulta la vista asociada a esa URL, en el archivo urls.py, y cuando se encuentra se  llama a la vista en el archivo views.py. Desde esa vista se consulta la base de datos, el \emph{modelo} en el \emph{argot} de Django, si fuera necesario. Una vez generada la vista, se \emph{renderiza} la página web y se envía al navegador mediante el protocolo HTTP.
 
 Este patrón de diseño favorece la creación de páginas web dinámicas de manera sencilla e independiente, de manera que en caso de
 modificación de un componente, este no afecte a otro, es decir, tiene un acoplamiento débil.
 
-Debido a las cualidades que tiene Django, se decide utilizar para la creación de la parte Front del proyecto, la página web de presentación de resultados. La justificación de la elección de Django es porque tenemos que dar resultados de distintos proyectos, tarea que facilita Django con el MVC, al cual se le pasan los datos obtenidos en la consulta de la BBDD a la plantilla, y Django ya crea el HTML resultante.
+Debido a las cualidades que tiene Django, se decide utilizar para la creación de la parte \emph{front-end} del proyecto, la página web de presentación de resultados. La justificación de la elección de Django es porque tenemos que dar resultados de distintos proyectos, tarea que facilita Django con el MVC, al cual se le pasan los datos obtenidos en la consulta de la base de datos a la plantilla, y Django ya crea el HTML resultante.
 Otra causa de la elección de Django para este proyecto, es porque el desarrollo de la herramienta ha sido en Python, y Django es un framework en Python.
 
 \subsection{Exuberant Ctags}
@@ -514,7 +514,7 @@ del código fuente de un programa~\cite{hiebert1999exuberant}. En el archivo de e
 variables, clases, macros... dependiendo del lenguaje de programación.
 Actualmente soporta 41 lenguajes de programación.
 
-Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores de código o entornos de desarrollo integrados (IDEs por sus siglas in inglés) y otras utilidades.
+Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores de código o entornos de desarrollo integrados (IDEs por sus siglas en inglés) y otras utilidades.
 
 A continuación se muestra el ejemplo de fichero ctags obtenido en un proyecto analizado:
 
@@ -561,7 +561,7 @@ Se decide usar este lenguaje de programación debido a las características que pr
 
 \subsection{API de GitHub}
 \label{subsec:apigithub}
-\textbf{GitHub}\footnote{https://github.com} es una plataforma para almacenar repositorios, utilizando el control de versiones de Git (ver seccion~\ref{subsec:git}), en la que destaca el desarrollo colaborativo. Ofrece, además de los repositorios git, funcionalidades como un sistema de gestión de erratas, wikis, una web pública y la posibilidad de que hacer ramificaciones (\emph{forks}) de un repositorio.
+\textbf{GitHub}\footnote{https://github.com} es una plataforma para almacenar repositorios, utilizando el control de versiones de Git (ver sección~\ref{subsec:git}), en la que destaca el desarrollo colaborativo. Ofrece, además de los repositorios git, funcionalidades como un sistema de gestión de erratas, wikis, una web pública y la posibilidad de que hacer ramificaciones (\emph{forks}) de un repositorio.
 
 La API de GitHub ofrece distintas funcionalidades para obtener datos sobre los más de 45 millones de repositorios alojados en GitHub. En nuestro caso vamos a usar la API que da información sobre los repositorios:
 
@@ -571,7 +571,7 @@ La API de GitHub ofrece distintas funcionalidades para obtener datos sobre los m
 
 Así, para los proyectos que nos interesen, realizaremos una petición HTTP siguiendo el interfaz indicado en la API. Si el proyecto existe, recibiremos una respuesta HTTP con un \emph{200 OK} y un fichero/objeto JSON con los datos. Si no existe el proyecto, la cabecera HTTP será \emph{404 Not Found} y el objeto JSON contendrá un mensaje de error.
 
-Otro uso que se le ha dado a GitHub, ha sido para almacenar el proyecto\footnote{https://github.com/calvarezpe/WebPage-UML} lo que permite hacer pública la herramienta desarrollada, permite colaboración de otros programadores y mantener un control de versiones, estando disponible la versión que más nos interese. En otro repositorio se ha almacenado la memoria del proyecto, con el principal objetivo del control de versiones.
+Otro uso que se le ha dado a GitHub ha sido para almacenar el proyecto\footnote{https://github.com/calvarezpe/WebPage-UML} lo que permite hacer pública la herramienta desarrollada, permite colaboración de otros programadores y mantener un control de versiones, estando disponible la versión que más nos interese. En otro repositorio se ha almacenado la memoria del proyecto, con el principal objetivo del control de versiones.
 
 \subsection{Git}
 \label{subsec:git}
@@ -634,9 +634,9 @@ En nuestra página web, se utiliza JavaScript para comprobar la URL que introduce
 
 \subsection{BootStrap}
 \label{subsec:bootstrap}
-\textbf{BootStrap}\footnote{http://getbootstrap.com} es un framework desarrollado y liberado por Twitter~\cite{cochran2012twitter}. Surge a raíz de la multitud de ingenieros trabajando en Twitter por el mismo proyecto, para utilizar todos el mismo framework. Se lanzó de manera pública en agosto de 2011, en la plataforma GitHub, pero debido a su potencial, numerosos programadores empezaron a colaborar sobre este proyecto, convirtiéndolo en el proyecto Open Source más activo del mundo.
+\textbf{BootStrap}\footnote{http://getbootstrap.com} es un framework desarrollado y liberado por Twitter~\cite{cochran2012twitter}. Surge a raíz de la multitud de ingenieros trabajando en Twitter por el mismo proyecto, para utilizar todos el mismo framework. Se lanzó de manera pública en agosto de 2011, en la plataforma GitHub, pero debido a su potencial, numerosos programadores empezaron a colaborar sobre este proyecto, convirtiéndolo en el proyecto de software libre más activo del mundo.
 
-BootStrap se trata de una colección de elementos web personalizables y funciones en una única herramienta. Su principal objetivo es facilitar el diseño web, basándose en una combinación de HTML, CSS y JavaScript. Se encuentra en continuo desarrollo gracias al Open Source.
+BootStrap se trata de una colección de elementos web personalizables y funciones en una única herramienta. Su principal objetivo es facilitar el diseño web, basándose en una combinación de HTML, CSS y JavaScript. Se encuentra en continuo desarrollo gracias a ser software libre.
 
 Se puede hacer uso de varias formas, pero nosotros lo haremos a través de la CDN de BootStrap incluyendo el siguiente código en nuestro archivo HTML:
 
@@ -650,7 +650,7 @@ BootStrap facilita la creación de páginas webs sencillas con interfaces limpias 
 Se ha utilizado BootStrap en las tres vistas disponibles de la página web:
 \begin{itemize}
   \item Página principal, en la cual se han utilizado el estilo de botón, el estilo de letra y el estilo de caja input.
-  \item Página para mostrar resultados (de uno o varios proyectos), en el cual se ha utilizado el estilo completo de tabla mediante el cual con una simple línea de código se obtiene una tabla responsive, la cual señala el elemento al pasar por encima el ratón, y muestra cada elemento de un color. La línea introducida ha sido la siguiente:
+  \item Página para mostrar resultados (de uno o varios proyectos), en el cual se ha utilizado el estilo completo de tabla mediante el cual con una simple línea de código se obtiene una tabla \emph{responsive}, la cual señala el elemento al pasar por encima el ratón, y muestra cada elemento de un color. La línea introducida ha sido la siguiente:
   \begin{lstlisting}[basicstyle=\small, language=HTML, breaklines=true]
     <table class="table table-striped table-bordered table-hover table-condensed">
   \end{lstlisting}
@@ -791,7 +791,7 @@ está formado por:
     \end{figure}
 
     Vamos a proceder a explicar el último caso de la Figura~\ref{fig:controlador-urls}. El primer operando sirve para especificar la URL
-    a la que queremos asoViar, en este caso \textit{results}, sera asociada a la vista \emph{results} ubicada en views.results.
+    a la que queremos asociar, en este caso \textit{results}, sera asociada a la vista \emph{results} ubicada en views.results.
     \item \textbf{views.py} es el archivo donde se encuentran las vistas de nuestro servidor. Existe una vista por cada
     página disponible de nuestro servidor, por lo tanto en nuestro caso hay 3: para la página principal, para la página
     de archivo donde se encuentran todos los resultados de los proyectos y la página de resultados a partir de una URL
@@ -925,17 +925,15 @@ Para poder obtener resultados reales, se ha probado la aplicación con varios pro
 El tutor del proyecto me facilitó una lista de proyectos en GitHub que tienen archivos de UML (verificados por la Universidad de Gotemburgo). Esta lista incluía proyectos con distintos tipos de lenguaje de programación,
 y diferentes archivos UML, tal como la extensión .xmi, .uml y en formato imagen. El formato .uml
 no se considera estandarizado.
+
 Por lo tanto, del total de esta lista filtramos a aquellos archivos que sean de un proyecto
-que use Python, y solo aquellos que utilicen el formato estándar de UML en archivo, es decir, los
+que use Python, y solo aquéllos que utilicen el formato estándar de UML en archivo, es decir, los
 que tienen extensión .xmi. De esta manera, obtenemos 108 proyectos para analizar y poder testear la aplicación.
+Estos proyectos nos servirán tanto para entender el uso de UML como para poder optimizar la aplicación
+frente a errores que se pudieran dar, al obtener los resultados de tal manera que el proceso y los resultados han sido supervisados y comprobados en todo momento.
 
-De manera que estos proyectos nos servirán tanto para entender el uso de UML como para poder optimizar la aplicación
-frente a errores que se pudieran dar, al obtener los resultados de manera supervisada.
+Debido a la gran cantidad de datos, se ha decidido realizar una representación gráfica de los resultados para poder dar una interpretación de los mismos. Los gráficos que se muestran en esta memoria son los siguientes:
 
-\section{Gráficos}
-\label{sec:graficos}
-Debido al amplio número de resultados, se decide hacer representaciones gráficas para poder dar una interpretación
-de ellos. Los gráficos que se muestran son:
 \begin{itemize}
   \item Clases de UML y de Python de todos los proyectos
   \item Extracto del total de proyectos, para poder analizarlos gráficamente
@@ -946,10 +944,10 @@ de ellos. Los gráficos que se muestran son:
 \end{itemize}
 
 
-\subsection{Análisis total de proyectos}
+\section{Análisis total de proyectos}
 \label{subsec:analisistotalproyectos}
 Se representa gráficamente por cada proyecto las clases de UML y las clases de Python que tienen. De esta manera
-podemos ver a groso modo, que la mayoría de clases Python no está representada en los diagramas UML, sin tener en cuenta
+podemos ver, \emph{a groso modo}, que la mayoría de clases Python no está representada en los diagramas UML, sin tener en cuenta
 los valores de los nombres de estas clases.
 
 \begin{figure}[htb]
@@ -989,11 +987,11 @@ Se observa que sólo el 3,04\% del total de clases de Python están modeladas en U
 al 86,90\% de las clases no se les ha aplicado ninguna corrección, por lo que se entiende que si no
 aparece modelada en UML, no es por un error ortográfico o similar.
 
-\subsection{Análisis de algunos proyectos}
+\section{Análisis de algunos proyectos}
 \label{subsec:analisisalgunosproyectos}
 Debido al gran número de proyectos representados en la Figura~\ref{fig:totalproyectos}, no se puede
 apreciar con detalle, por lo que se crea otra figura con sólo 15 proyectos, de manera que se pueda
-explicar mejor la interpretación de la gráfica y añadiendo el componente de intersección.
+explicar mejor la interpretación de la gráfica, añadiendo el componente de intersección.
 
 \begin{figure}[htb]
   \centering
@@ -1003,11 +1001,11 @@ explicar mejor la interpretación de la gráfica y añadiendo el componente de inte
 \end{figure}
 
 Por cada proyecto\footnote{El nombre de proyecto está identificado
-por el autor en GitHub y el nombre que le da al proyecto} de la Figura~\ref{fig:extracto} se observan 3 barras:
+por el autor en GitHub y el nombre que le da al proyecto} de la Figura~\ref{fig:extracto} se observan tres barras:
 \begin{itemize}
-  \item Barra azul que representa el número total de clases UML de dicho proyecto
-  \item Barra naranja que representa el número total de clases Python de dicho proyecto
-  \item Barra gris que representa el número total de clases Python modeladas en UML de dicho proyecto
+  \item Una barra azul que representa el número total de clases UML de dicho proyecto
+  \item Una barra naranja que representa el número total de clases Python de dicho proyecto
+  \item Una barra gris que representa el número total de clases Python modeladas en UML de dicho proyecto
 \end{itemize}
 
 Para esta gráfica se pueden dar tres situaciones:
@@ -1022,7 +1020,8 @@ Para esta gráfica se pueden dar tres situaciones:
   \item El tamaño de la columna azul es mayor que la columna naranja. Es un caso poco común, el cual se ha dado en
   13 proyectos. Esto significa que tiene más clases de UML que clases en Python. De los 13 proyectos se observa,
   que aún teniendo más clases de UML que de Python, no todas sus clases de Python están modeladas en UML, tal como podemos
-  observar en la siguiente figura:
+  observar en la Figura~\ref{fig:listamasuml}.
+  
   \begin{figure}[htb]
     \centering
     \includegraphics[width=10cm, keepaspectratio]{img/GraficasResultados/listamasuml}
@@ -1034,7 +1033,7 @@ Para esta gráfica se pueden dar tres situaciones:
 En conclusión, tal como hemos podido suponer en el apartado \ref{subsec:analisistotalproyectos}, gran parte
 de las clases de Python no están modeladas en UML.
 
-\subsection{Porcentaje intersección frente a número de clases de Python}
+\section{Porcentaje de intersección frente a número de clases de Python}
 \label{subsec:intersecvsclases}
 
 Para poder ver la tendencia general del modelado de UML en base a clases de Python, se representa el porcentaje de
@@ -1055,10 +1054,10 @@ clases a modelar, y que ningún proyecto con un número superior a 500 clases pres
 
 En conclusión, se modelan más con UML las clases de Python, cuando hay un número menor de clases de Python a modelar.
 
-\subsection{Correcciones}
+\section{Correcciones}
 \label{subsec:correcciones}
 Las correcciones aplicadas representan un 13,10\% de la intersección de clases UML y Python, tal como hemos visto en la figura
-\ref{fig:tablaresultados}. Para dos proyectos de ejemplo se obtiene lo siguiente:
+\ref{fig:tablaresultados}. Para dos proyectos de ejemplo se obtiene la Figura~\ref{fig:TFGA-M,pySLD}.
 
 \begin{figure}[htb]
   \centering
