@@ -162,7 +162,7 @@ Con la entrega de este trabajo pongo fin a una etapa, a unos años que han tenido
 
 De estos años de carrera, quiero agradecer a mi familia por su comprensión a las horas que tenía que echar delante de un libro u ordenador, haciendo el mínimo ruido posible para no molestarme, y por sus pequeñas visitas para desconectar.
 Quiero agradecer a mis amigos de toda la vida, por sus mensajes de apoyo el primer día de universidad y por sus mensajes de felicitación en el último.
-También quiero agradecer a toda las personas que he conocido a lo largo de la carrera, desde la persona con la que me perdí en busca de nuestro primer aula el día de la presentación hasta con la que hable de que era nuestro último día de clase, sin olvidar a todos los demás que han estado entre medias, compartiendo horas de prácticas, trabajos, biblioteca, Skype... Todos por el mismo objetivo.
+También quiero agradecer a todas las personas que he conocido a lo largo de la carrera, desde la persona con la que me perdí en busca de nuestro primer aula el día de la presentación hasta con la que hable de que era nuestro último día de clase, sin olvidar a todos los demás que han estado entre medias, compartiendo horas de prácticas, trabajos, biblioteca, Skype... Todos por el mismo objetivo.
 
 Respecto a mi TFG, quiero agradecer a todos los que me han ayudado directamente: con recomendaciones de cambios de palabra (tanto en inglés como en español), dándome una opinión general o simplemente, haciéndome compañía.
 Y como no, a mi tutor Gregorio, por haberme dado la oportunidad de realizar este TFG y por haber estado tan atento contestando correos electrónicos a horas inesperadas.
@@ -242,7 +242,7 @@ Surge así el debate de por qué UML no es aceptado en entornos donde sería de gra
 
 Para solucionar este problema, sería deseable contar con proyectos reales donde tuviéramos además su correspondiente diagrama UML. Esto serviría, además, para comprobar cómo se está modelando en proyectos reales, ya que en muchas ocasiones los diagramas que se utilizan en un entorno de desarrollo no contienen todos los detalles de implementación, sino que son una abstracción.
 
-Por ello, surge la idea de este trabajo: una herramienta a la que se le indica la dirección URL de un proyecto en GitHub, y realice un análisis para poder evaluar la correspondencia en cuanto a código Python y su representación en diagramas de UML.
+Por ello, surge la idea de este trabajo: una herramienta a la que se le indica la dirección URL de un proyecto en GitHub, y realice un análisis para poder evaluar la correspondencia en cuanto a código Python y su representación en diagramas de UML. Se decide utilizar Python para poder centrarse en un lenguaje concreto a modo concepto pero se puede extender a más lenguajes.
 
 Se pretende dar apoyo al estudio realizado por la URJC, la Universidad de Gotemburgo y Chalmers University (Suecia) sobre el uso de UML, que tiene como objetivo analizar y fomentar el uso de UML en entornos de software libre. La asunción que hay detrás de estos esfuerzos es que el modelado permite crear mejores proyectos de software, ya que mejora la arquitectura del software, la comunicación entre el equipo de desarrollo y la documentación del proyecto. Por lo tanto, los resultados obtenidos con nuestra herramienta podrían ser asociados a la calidad del proyecto software, es decir, un proyecto que obtenga un porcentaje alto de representación en diagramas de UML tiene muchas posibilidades de ser a su vez un proyecto de calidad.
 
@@ -301,12 +301,12 @@ El objetivo general se ha desgranado en una serie de objetivos específicos, que 
 
 \begin{enumerate}
   \item Estudiar sintaxis de UML y sus archivos para poder entender las posibles formas en las que
-  podemos obtener un archivo UML y los distintos tipos.
+  podemos obtener un archivo UML y los distintos tipos de diagramas UML que podemos obtener.
   \item Concretar número de proyectos de los que disponemos, y tenemos constancia que son proyectos
   con modelado UML. En esta tarea he podido contar con la colaboración de la Universidad de Gotemburgo, ya que ha verificado que efectivamente los proyectos que se van a analizar contienen diagramas de clases en UML.
-  \item Extraer los nombres de las clases de Python y UML, para poder comprobar cuales de ellas
-  están representadas.
-  \item Optimizar código para los proyectos disponibles, tras realizar pruebas con ellos.
+  \item Extraer los nombres de las clases de Python y UML, para poder comprobar cuales de las clases de Python
+  están representadas en UML.
+  \item Optimizar el código de la aplicación tras haber realizado pruebas con los proyectos disponibles.
   \item Desarrollar una aplicación web para mostrar los resultados y poder usar la aplicación en futuros proyectos
   de manera rápida y sencilla.
 
@@ -321,10 +321,10 @@ La planificación temporal ha consistido en los siguientes pasos:
 
 \begin{enumerate}
   \item Reunión con el tutor dónde me explica su idea del tema del proyecto y el objetivo que se persigue.
-  \item Estudiar y entender el lenguaje de modelado UML, para qué se usa, cómo es, dónde se usa...
+  \item Estudiar y entender el lenguaje de modelado UML, de manera que se responda a las preguntas de para qué se usa, cómo es, dónde se usa, porqué se usa...
   \item Definición de la arquitectura de la aplicación.
   \item Reunión con el tutor para aclarar dudas sobre UML y debatir la propuesta de arquitectura de la aplicación.
-  \item Desarrollo de la aplicación:
+  \item El desarrollo de la aplicación se ha desglosado en varios puntos:
   \begin{itemize}
     \item Aprender a usar Ctags para extraer las clases en archivos Python.
     \item Extraer las clases de UML de archivos .xmi.
@@ -368,23 +368,23 @@ No es un lenguaje de programación como tal, sino un conjunto de normas estándare
 respecto al sistema.
 
 Sirve para dar una representación gráfica de los procesos o métodos del sistema. UML cuenta con distintos
-tipos de diagramas, dependiendo del enfoque a representar del sistema. Los más usados son
+tipos de diagramas, dependiendo que es lo que se quiere representar del sistema se elegirá uno u otro. Los más usados son
 los casos de uso, clase y secuencia.
 
 \begin{itemize}
-  \item \textbf{Diagrama de casos de uso:} representa todas las posibilidades de uso de un sistema
-  \item \textbf{Diagrama de clases:} describe la estructura mostrando las clases con sus atributos
-  operaciones y relaciones entre objetos.
+  \item \textbf{Diagrama de casos de uso:} representa todas las posibilidades de uso de un sistema.
+  \item \textbf{Diagrama de clases:} describe la estructura estática del sistema mostrando las clases con sus atributos
+  operaciones y las relaciones existentes entre objetos.
   \item \textbf{Diagrama de objetos:} se utiliza para representar la instancia de una clase.
-  \item \textbf{Diagrama de secuencias:} muestra la interacción, a lo largo del tiempo, entre instancias de
+  \item \textbf{Diagrama de secuencias:} muestra la interacción que se puede dar en el sistema, a lo largo del tiempo, entre instancias de
   clases, componentes o actores.
-  \item \textbf{Diagrama de colaboración:} representa el trabajo conjunto de las instancias específicas
+  \item \textbf{Diagrama de colaboración:} representa el trabajo que se realiza en conjunto de las instancias específicas
   de las clases.
   \item \textbf{Diagrama de estados:} sirve para conocer la situación actual del sistema
   y los cambios que se pueden provocar, a lo largo de su existencia.
-  \item \textbf{Diagrama de actividades:} muestra el flujo de trabajo a través de una serie de acciones.
-  \item \textbf{Diagrama de componentes:} orientado a la arquitectura, sirve para conocer la división
-  de componentes físicos y la dependencia entre ellos.
+  \item \textbf{Diagrama de actividades:} muestra el flujo de trabajo producido en el sitema a través de una serie de acciones permitidas.
+  \item \textbf{Diagrama de componentes:} orientado a la arquitectura del sistema, sirve para conocer la división
+  de componentes físicos y la dependencia que existe entre ellos.
   \item \textbf{Diagrama de despliegue:} complemento de los diagramas de componentes. Muestra la configuración
   en funcionamiento entre software y hardware.
 \end{itemize}
@@ -452,8 +452,8 @@ Para el caso de la Figura~\ref{fig:ejemplouml} se observa que hay tres clases, e
 
 \begin{itemize}
   \item \textbf{Nombre de la clase:} Vehículo.
-  \item \textbf{Atributos:} dueño, puertas y rueda. Estos atributos están acompañados de un icono de una llave con cuadro azul, esto significa que es \textit{Protected}, por lo tanto no es visible desde fuera de la clase pero podrá ser usado por métodos y por las subclases heredadas.
-  \item \textbf{Métodos:} Vehículo() y Características(). Estos métodos están acompañados de un icono de un cuadro rosa, esto significa que es \textit{Public}, por lo tanto es visible desde dentro y fuera de la clase.
+  \item \textbf{Atributos:} dueño, puertas y rueda. Estos atributos están acompañados de un icono de una llave con cuadro azul, esto significa que es \textit{Protected}, por lo tanto no son visibles desde fuera de la clase pero podrán ser usados por métodos y por las subclases heredadas.
+  \item \textbf{Métodos:} Vehículo() y Características(). Estos métodos están acompañados de un icono de un cuadro rosa, esto significa que es \textit{Public}, por lo tanto son visibles desde dentro y fuera de la clase.
 \end{itemize}
 
 Las clases \textit{Auto} y \textit{Camioneta} tienen los atributos y métodos de Vehículo, además de sus atributos y métodos particulares.
@@ -469,7 +469,7 @@ Las clases \textit{Auto} y \textit{Camioneta} tienen los atributos y métodos de 
 </UML:Class>
 \end{lstlisting}
 
-Para el caso de el Listado~\ref{lst:ejemploxmi}, se observa cómo se escriben estos diagramas. El código se ha obtenido a partir de uno de los proyectos analizados, y se ha simplificado, de manera que sea más fácil observar los elementos deseados:
+Para el caso de el Listado~\ref{lst:ejemploxmi}, se observa cómo se escriben estos diagramas en archivos .xmi. El código se ha obtenido a partir de uno de los proyectos analizados, y se ha simplificado eliminando elementos no relevantes, de manera que sea más fácil observar los elementos deseados:
 
 \begin{itemize}
    \item \textbf{Nombre de la clase:} Pokemon. El nombre de la clase lo podemos observar en la etiqueta UML:Class, indicado el nombre en el atributo \emph{name}.
@@ -512,7 +512,7 @@ Otra causa de la elección de Django para este proyecto, es porque el desarrollo 
 \textbf{Exuberant ctags}\footnote{http://ctags.sourceforge.net} es una variante extendida de ctags, que es una herramienta de programación que genera un archivo de etiquetas en texto plano a partir
 del código fuente de un programa~\cite{hiebert1999exuberant}. En el archivo de etiquetas se indican funciones,
 variables, clases, macros... dependiendo del lenguaje de programación.
-Actualmente soporta 41 lenguajes de programación.
+Actualmente soporta 41 lenguajes de programación, pero nosotros vamos a centrarnos en Python como prueba de concepto.
 
 Normalmente es utilizada para la localización de las definiciones o tipos, por numerosos editores de código o entornos de desarrollo integrados (IDEs por sus siglas en inglés) y otras utilidades.
 
@@ -532,7 +532,7 @@ A continuación se muestra el ejemplo de fichero ctags obtenido en un proyecto an
 
 \begin{itemize}
   \item Las seis primeras líneas corresponden a información generada por Exuberant Ctags.
-  \item las tres últimas corresponden al análisis realizado por Exuberant Ctags, explicado línea a línea:
+  \item Las tres últimas corresponden al análisis realizado por Exuberant Ctags, explicado línea a línea:
   \begin{enumerate}
     \item Por el identificador del final, c, sabemos que es una clase, y el nombre lo podemos extraer del principio de la línea.
     \item Por el identificador del final, m, sabemos que es un método correspondiente a la clase GamePresentation, llamado display tal como podemos ver al principio de la línea.
@@ -550,14 +550,14 @@ por la legibilidad del código~\cite{van2003python,summerfield2010programming}. S
 \begin{enumerate}
   \item Interpretado: no necesita de un compilador para ser ejecutados, sino de un interprete. El interprete
   ejecuta el programa directamente, no genera un ejecutable.
-  \item De alto nivel: sintaxis sencilla.
+  \item De alto nivel: sintaxis sencilla para la comprensión humana.
   \item Multiplataforma: para diversos Sistemas Operativos.
   \item De tipado dinámico: no es necesario declarar el tipo de variable, ya que se asigna
   automáticamente en tiempo de ejecución.
   \item Multiparadigma: permite distintas técnicas de programación (Orientación a objetos, funcional...)
 \end{enumerate}
 
-Se decide usar este lenguaje de programación debido a las características que presenta que es de alto nivel y porque es el lenguaje que más me ha gustado en los años de universidad. Con Python se ha desarrollado todo el proyecto, tanto el servidor con Django como toda la lógica de la herramienta para analizar el código fuente y su modelado UML.
+Se decide usar este lenguaje de programación debido a las características que presenta como que es de alto nivel y facilita su compresión, y porque es el lenguaje que más me ha gustado en los años de universidad. Con Python se ha desarrollado todo el proyecto, tanto el servidor con Django como toda la lógica de la herramienta para analizar el código fuente y su modelado UML.
 
 \subsection{API de GitHub}
 \label{subsec:apigithub}
@@ -706,7 +706,7 @@ disponible todo aquel que haya sido analizado anteriormente.
 
 Es necesario entender el funcionamiento de cada módulo, detallado a continuación.
 
-\subsection{Front-end (Cliente)}
+\subsection{Cliente (Front-end)}
 \label{subsec:cliente}
 \subsubsection{Frontal página web}
 \label{subsubsec:frontweb}
@@ -759,11 +759,11 @@ Tal como se puede observar en la Figura~\ref{fig:estructura-server}, el director
 está formado por:
 \begin{itemize}
   \item \textbf{db.sqlite3} que es el archivo de la base de datos.
-  \item \textbf{manage.py} que es sirve para interactuar con Django a través de comandos.
+  \item \textbf{manage.py} que sirve para interactuar con Django a través de comandos en el terminal.
   \item \textbf{mysite} que es el directorio principal del servidor Django. Dentro de este directorio,
   los archivos que usamos son \textit{urls.py}, en el cual tenemos que incluir todas las
   URLs de nuestra aplicación y \textit{settings.py}, en el cual disponemos de la configuración general del servidor,
-  en el cual tenemos que indicar nuestra aplicación.
+  en el cual tenemos que indicar la existencia de nuestra aplicación, la base de datos a utilizar, el huso horario...
   \item \textbf{pyumlclass} que es el directorio donde está toda la lógica de nuestra aplicación. Es necesario realizar
   una explicación de los siguientes archivos/directorios:
   \begin{itemize}
@@ -780,9 +780,9 @@ está formado por:
       \label{fig:project-model}
     \end{figure}
     \item \textbf{templates} es el directorio donde se almacenan las plantillas HTML de nuestra web.
-    \item \textbf{urls.py} es el archivo denominado controlador. En este archivo es donde se indica la vista
+    \item \textbf{urls.py} es el archivo denominado controlador en el cual se indica la vista
     que se mostrará en el momento que se pida una URL. Django utiliza un conjunto de patrones que intentará
-    hacer coincidir la dirección URL recibida con la vista correcta. En la Figura~\ref{fig:controlador-urls} podemos observar las URLs.
+    hacer coincidir la dirección URL recibida con la vista correcta. En la Figura~\ref{fig:controlador-urls} podemos observar las URLs disponibles para nuestra aplicación.
     \begin{figure}[htb]
       \centering
       \includegraphics[width=10cm, keepaspectratio]{img/controlador-urls}
@@ -854,7 +854,7 @@ El funcionamiento general de este programa consiste en:
     caso, solo nos fijaremos aquellas que sean marcadas como clases, indicadas con
     una \textbf{c} al final, y nos quedamos con el nombre de la clase.
 
-    Todas las clases de todos los archivos .py serán añadidas a un archivo.
+    Todas las clases de todos los archivos .py serán añadidas a una lista.
 
     Una vez finalizado este proceso,
     se realiza un proceso de depuración en el que se eliminan duplicados.
@@ -866,7 +866,7 @@ El funcionamiento general de este programa consiste en:
     realiza un proceso de depuración para eliminar duplicados.
   \end{itemize}
   \item Una vez obtenidos todos los nombres de las clases tanto para Python como para UML, se procede a realizar
-  un análisis los nombres. Para facilitar las operaciones de análisis, se convierte las listas de clases en \textit{sets},
+  un análisis de los nombres obtenidos. Para facilitar las operaciones de análisis, se convierte las listas de clases en \textit{sets},
   que es un tipo de Python definido como colecciones de datos únicos no ordenados. El análisis se divide en tres partes:
   \begin{enumerate}
     \item \textbf{Análisis sin correcciones:} se calcula la intersección existente entre los dos conjuntos. Es decir,
@@ -932,11 +932,11 @@ que tienen extensión .xmi. De esta manera, obtenemos 108 proyectos para analizar
 Estos proyectos nos servirán tanto para entender el uso de UML como para poder optimizar la aplicación
 frente a errores que se pudieran dar, al obtener los resultados de tal manera que el proceso y los resultados han sido supervisados y comprobados en todo momento.
 
-Debido a la gran cantidad de datos, se ha decidido realizar una representación gráfica de los resultados para poder dar una interpretación de los mismos. Los gráficos que se muestran en esta memoria son los siguientes:
+Debido a la gran cantidad de datos obtenidos en el análisis, se ha decidido realizar una representación gráfica de los resultados para poder dar una interpretación de los mismos. Los gráficos que se muestran en esta memoria son los siguientes:
 
 \begin{itemize}
-  \item Clases de UML y de Python de todos los proyectos
-  \item Extracto del total de proyectos, para poder analizarlos gráficamente
+  \item Número de clases de UML y de Python de todos los proyectos
+  \item Extracto del gráfico anterior del total de proyectos, para poder analizarlos gráficamente
   \item Gráfica que se representa el porcentaje de clases de Python representadas con UML frente al total
   de clases de Python
   \item Gráfica de dos proyectos de ejemplo para interpretar las correcciones realizadas por mayúsculas/minúsculas y
@@ -947,7 +947,7 @@ Debido a la gran cantidad de datos, se ha decidido realizar una representación g
 \section{Análisis total de proyectos}
 \label{subsec:analisistotalproyectos}
 Se representa gráficamente por cada proyecto las clases de UML y las clases de Python que tienen. De esta manera
-podemos ver, \emph{a groso modo}, que la mayoría de clases Python no está representada en los diagramas UML, sin tener en cuenta
+podemos ver, \emph{a groso modo}, que la mayoría de clases Python no están representadas en los diagramas UML, sin tener en cuenta
 los valores de los nombres de estas clases.
 
 \begin{figure}[htb]
@@ -956,6 +956,8 @@ los valores de los nombres de estas clases.
   \caption{Clases de todos los proyectos}
   \label{fig:totalproyectos}
 \end{figure}
+
+Nos encontramos ante un gráfico en el que cada columna representa a un proyecto, y se puede dividir en número de clases en Python y número de clases en UML, siendo cada una representada por un color, naranja y azul respectivamente. En el eje vertical se indica el número de clases de las que dispone el proyecto, siendo las clases de Python y de UML apiladas en una única columna.
 
 Tal como podemos ver en la Figura~\ref{fig:totalproyectos}, el número de clases existentes, para
 la mayoría de los proyectos, es superior en Python que en UML.
@@ -1008,6 +1010,8 @@ por el autor en GitHub y el nombre que le da al proyecto} de la Figura~\ref{fig:
   \item Una barra gris que representa el número total de clases Python modeladas en UML de dicho proyecto
 \end{itemize}
 
+El tamaño de las barras indica el número de clases para cada caso.
+
 Para esta gráfica se pueden dar tres situaciones:
 \begin{itemize}
   \item Los tamaños de las tres columnas sea el mismo. Este sería el caso ideal, el cual significa que todas
@@ -1015,13 +1019,13 @@ Para esta gráfica se pueden dar tres situaciones:
   \textit{aydevosotros/TFG-AntonioMolina}.
   \item El tamaño de la columna naranja es mayor que la columna azul. Este es el caso más común, el cual significa
   si la columna gris es del mismo tamaño que la columna azul, que hay clases de Python que no están modeladas en UML.
-  Si la columna gris es de menor tamaño que la columna azul, además de lo anterior, significaría que hay clases de UML
-  que no está asociada a alguna clase de Python.
+  Si la columna gris es de menor tamaño que la columna azul, además de lo anterior, significaría que hay algunas clases de UML
+  que no están asociadas a alguna clase de Python.
   \item El tamaño de la columna azul es mayor que la columna naranja. Es un caso poco común, el cual se ha dado en
   13 proyectos. Esto significa que tiene más clases de UML que clases en Python. De los 13 proyectos se observa,
   que aún teniendo más clases de UML que de Python, no todas sus clases de Python están modeladas en UML, tal como podemos
   observar en la Figura~\ref{fig:listamasuml}.
-  
+
   \begin{figure}[htb]
     \centering
     \includegraphics[width=10cm, keepaspectratio]{img/GraficasResultados/listamasuml}
@@ -1047,10 +1051,10 @@ la intersección entre clases UML y Python frente al número total de clases Pytho
 \end{figure}
 
 Cada punto representa a un proyecto, situado en el porcentaje de la intersección (linea vertical) y en el número total
-de clases de Python (linea horizontal).
+de clases de Python (linea horizontal) de las que forman el proyecto.
 
 Se puede observar que los mayores porcentajes de intersección se obtienen para aquellos proyectos que tienen pocas
-clases a modelar, y que ningún proyecto con un número superior a 500 clases presenta un porcentaje mayor al 10\%.
+clases a modelar, tal como observamos en el lado izquierdo de la gráfica en el que aparece multitud de puntos, y que ningún proyecto con un número superior a 500 clases presenta un porcentaje mayor al 10\%, tal como observamos en el resto de la gráfica donde aparecen algunos puntos muy dispersos.
 
 En conclusión, se modelan más con UML las clases de Python, cuando hay un número menor de clases de Python a modelar.
 
